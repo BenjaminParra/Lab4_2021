@@ -1,0 +1,12 @@
+modelo/ValidationResponse.java
+ modelo.ValidationResponse
+modelo/Post.java
+ modelo.Post
+modelo/Usuario.java
+ modelo.Usuario
+vista/Main.java
+ vista.Main
+modelo/SocialNetwork.java
+ modelo.SocialNetwork
+modelo/Validator.java
+ modelo.Validator
