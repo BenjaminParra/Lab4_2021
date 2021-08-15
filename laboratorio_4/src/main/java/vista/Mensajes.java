@@ -49,9 +49,9 @@ public class Mensajes extends javax.swing.JDialog {
     private void initComponents() {
 
         btnOk = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lblMensaje = new javax.swing.JTextArea();
         btnBackMain = new javax.swing.JButton();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        lblMensaje = new javax.swing.JEditorPane();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -63,11 +63,6 @@ public class Mensajes extends javax.swing.JDialog {
             }
         });
 
-        lblMensaje.setEditable(false);
-        lblMensaje.setColumns(20);
-        lblMensaje.setRows(5);
-        jScrollPane1.setViewportView(lblMensaje);
-
         btnBackMain.setText("Volver Menú Prinicpal");
         btnBackMain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -75,39 +70,44 @@ public class Mensajes extends javax.swing.JDialog {
             }
         });
 
+        lblMensaje.setEditable(false);
+        lblMensaje.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
+        jScrollPane1.setViewportView(lblMensaje);
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(33, 33, 33)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(101, 101, 101)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addComponent(btnBackMain)
-                        .addGap(68, 68, 68)
-                        .addComponent(btnOk))
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 355, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(70, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addComponent(btnOk)))
+                .addContainerGap(150, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(33, 33, 33)
+                .addGap(35, 35, 35)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(52, 52, 52)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnOk)
-                    .addComponent(btnBackMain))
-                .addContainerGap(39, Short.MAX_VALUE))
+                    .addComponent(btnBackMain)
+                    .addComponent(btnOk))
+                .addContainerGap(55, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
-       PanelDeRegistro pr = new PanelDeRegistro();
+       /*PanelDeRegistro pr = new PanelDeRegistro();
        pr.setAlwaysOnTop(true);
-       pr.setVisible(true);
+       pr.setLocationRelativeTo(null);
+       pr.setVisible(true);*/
        this.setVisible(false);
     }//GEN-LAST:event_btnOkActionPerformed
 
@@ -117,7 +117,7 @@ public class Mensajes extends javax.swing.JDialog {
         Menu_Bienvenida mb = new Menu_Bienvenida();
         
         this.dispose();
-        
+        mb.setLocationRelativeTo(null);
         mb.setVisible(true);
         
         
@@ -171,6 +171,6 @@ public class Mensajes extends javax.swing.JDialog {
     private javax.swing.JButton btnBackMain;
     private javax.swing.JButton btnOk;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea lblMensaje;
+    private javax.swing.JEditorPane lblMensaje;
     // End of variables declaration//GEN-END:variables
 }

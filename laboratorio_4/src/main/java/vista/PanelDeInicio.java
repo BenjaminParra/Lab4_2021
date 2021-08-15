@@ -10,7 +10,7 @@ import modelo.ValidationResponse;
 import modelo.Validator;
 
 /**
- *
+ * Esta ventana es para el inicio de sesión
  * @author Benjamin Parra
  */
 public class PanelDeInicio extends javax.swing.JFrame {
@@ -59,6 +59,11 @@ public class PanelDeInicio extends javax.swing.JFrame {
         });
 
         btnBackMain.setText("Volver atrás");
+        btnBackMain.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnBackMainActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -119,22 +124,41 @@ public class PanelDeInicio extends javax.swing.JFrame {
         ValidationResponse validationResponse = new ValidationResponse();
         validationResponse = validator.validadorLogin(datosUsuario, sn);
         
+        PanelDeSesionIniciada pSI = new PanelDeSesionIniciada();
+        this.dispose();
+        pSI.setLocationRelativeTo(null);
+        pSI.setVisible(true);
+        /*
         if (validationResponse.isEsValido()) {
             this.dispose();
             sn.login(nombreUsuario);
             Mensajes nm = new Mensajes("El usuario ha iniciado sesión",this,true);
+            nm.setLocationRelativeTo(null);
             nm.setVisible(true);
             
         }else if (!validationResponse.isEsValido()) {
             this.dispose();
             Mensajes nm = new Mensajes(validationResponse.getMensaje(),this,true);
+            nm.setLocationRelativeTo(null);
             nm.setVisible(true);
             
-        }
+        }*/
         
         
         
     }//GEN-LAST:event_btnOkActionPerformed
+/**
+ * Este boton es para retornar al main
+ * @param evt 
+ */
+    private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
+        // TODO add your handling code here:
+        Menu_Bienvenida mb = new Menu_Bienvenida();
+        mb.setLocationRelativeTo(this);
+        this.dispose();
+        
+        mb.setVisible(true);
+    }//GEN-LAST:event_btnBackMainActionPerformed
 
     /**
      * @param args the command line arguments

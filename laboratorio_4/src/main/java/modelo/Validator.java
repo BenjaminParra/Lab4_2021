@@ -291,7 +291,7 @@ public class Validator {
         boolean esValido = true;
         if (!esLogin(usuario)) {
             esValido = false;
-            mensajeValidacion = mensajeValidacion +"\nERROR: Asegurese de ingresar los datos con el formato NombreUsuario,Contraseña\n";
+            mensajeValidacion = mensajeValidacion +"\nERROR: Asegurese no dejar ninguno de los 2 campos en blanco.\n";
         }else{
             if (!socialNetwork.validaLogin(usuario[0], usuario[1])) {
                 esValido = false;
