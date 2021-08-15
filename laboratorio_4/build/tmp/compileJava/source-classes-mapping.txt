@@ -1,12 +1,32 @@
-modelo/ValidationResponse.java
- modelo.ValidationResponse
-modelo/Post.java
- modelo.Post
-modelo/Usuario.java
- modelo.Usuario
-vista/Main.java
- vista.Main
 modelo/SocialNetwork.java
  modelo.SocialNetwork
+modelo/ValidationResponse.java
+ modelo.ValidationResponse
 modelo/Validator.java
  modelo.Validator
+modelo/Usuario.java
+ modelo.Usuario
+modelo/Post.java
+ modelo.Post
+vista/PanelDeInicio.java
+ vista.PanelDeInicio
+ vista.PanelDeInicio$1
+ vista.PanelDeInicio$2
+vista/Mensajes.java
+ vista.Mensajes
+ vista.Mensajes$1
+ vista.Mensajes$2
+ vista.Mensajes$3
+ vista.Mensajes$3$1
+vista/Menu_Bienvenida.java
+ vista.Menu_Bienvenida
+ vista.Menu_Bienvenida$1
+ vista.Menu_Bienvenida$2
+ vista.Menu_Bienvenida$3
+vista/Main.java
+ vista.Main
+vista/PanelDeRegistro.java
+ vista.PanelDeRegistro
+ vista.PanelDeRegistro$1
+ vista.PanelDeRegistro$2
+ vista.PanelDeRegistro$3

@@ -22,7 +22,7 @@ public class Validator {
 	String mensajeValidacion = "";
         if (!esUsuario(usuario)) {
             esValido = false;
-            mensajeValidacion = mensajeValidacion +"\nERROR: Asegurese de ingresar los datos con el formato NombreUsuario,Contrasena.\n";
+            mensajeValidacion = mensajeValidacion +"\n: Asegurese de no dejar campos en blanco";
             
         }
         if (socialNetwork.estaRegistrado(usuario[0])) {
@@ -369,7 +369,7 @@ public class Validator {
      */
     public boolean esUsuario(String[] strSplit){
         //String[] fecha = strSplit[2].split("/");
-        return strSplit.length==2 /*&& esFecha(fecha)*/ && !esNumero(strSplit[0]) && !strSplit[1].isEmpty();
+        return strSplit.length==2 /*&& esFecha(fecha)*/ && !(strSplit[0]).isEmpty() && !strSplit[1].isEmpty();
         
     }
     /**
