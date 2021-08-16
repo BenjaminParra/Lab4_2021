@@ -14,12 +14,14 @@ import modelo.Validator;
  * @author Benjamin Parra
  */
 public class PanelDeInicio extends javax.swing.JFrame {
-
+    SocialNetwork snInicio;
     /**
      * Creates new form PanelDeInicio
+     * @param sn
      */
-    public PanelDeInicio() {
+    public PanelDeInicio(SocialNetwork sn) {
         initComponents();
+        this.snInicio = sn;
     }
 
     /**
@@ -116,33 +118,42 @@ public class PanelDeInicio extends javax.swing.JFrame {
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
         // TODO add your handling code here:
-        SocialNetwork sn = new SocialNetwork("Facebook","27/12/2021");
+        
         Validator validator = new Validator();
         String nombreUsuario = textNombreUsuario.getText();
         String password = textPass.getText();
         String[] datosUsuario = {nombreUsuario,password};
         ValidationResponse validationResponse = new ValidationResponse();
-        validationResponse = validator.validadorLogin(datosUsuario, sn);
+        validationResponse = validator.validadorLogin(datosUsuario, snInicio);
         
-        PanelDeSesionIniciada pSI = new PanelDeSesionIniciada();
+        /*
+        PanelDeSesionIniciada pSI = new PanelDeSesionIniciada(snInicio);
         this.dispose();
         pSI.setLocationRelativeTo(null);
-        pSI.setVisible(true);
-        /*
+        pSI.setVisible(true);*/
+        
         if (validationResponse.isEsValido()) {
-            this.dispose();
-            sn.login(nombreUsuario);
-            Mensajes nm = new Mensajes("El usuario ha iniciado sesión",this,true);
+            //this.dispose();
+            snInicio.login(nombreUsuario);
+            Mensajes nm = new Mensajes("El usuario ha iniciado sesión",this,true,snInicio);
             nm.setLocationRelativeTo(null);
             nm.setVisible(true);
+            PanelDeSesionIniciada pSI = new PanelDeSesionIniciada(snInicio);
+            this.dispose();
+            pSI.setLocationRelativeTo(null);
+            pSI.setVisible(true);
+            textNombreUsuario.setText("");
+            textPass.setText("");
             
         }else if (!validationResponse.isEsValido()) {
-            this.dispose();
-            Mensajes nm = new Mensajes(validationResponse.getMensaje(),this,true);
+            //this.dispose();
+            Mensajes nm = new Mensajes(validationResponse.getMensaje(),this,true,snInicio);
             nm.setLocationRelativeTo(null);
             nm.setVisible(true);
+            textNombreUsuario.setText("");
+            textPass.setText("");
             
-        }*/
+        }
         
         
         
@@ -153,7 +164,7 @@ public class PanelDeInicio extends javax.swing.JFrame {
  */
     private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
         // TODO add your handling code here:
-        Menu_Bienvenida mb = new Menu_Bienvenida();
+        Menu_Bienvenida mb = new Menu_Bienvenida(snInicio);
         mb.setLocationRelativeTo(this);
         this.dispose();
         
@@ -163,37 +174,15 @@ public class PanelDeInicio extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    /*
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PanelDeInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PanelDeInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PanelDeInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PanelDeInicio.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PanelDeInicio().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackMain;

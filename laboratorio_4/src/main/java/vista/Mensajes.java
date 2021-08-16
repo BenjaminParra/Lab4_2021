@@ -7,6 +7,7 @@ package vista;
 
 import java.awt.Frame;
 import javax.swing.JButton;
+import javax.swing.JEditorPane;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import modelo.SocialNetwork;
@@ -16,7 +17,7 @@ import modelo.SocialNetwork;
  * @author Benjamin Parra
  */
 public class Mensajes extends javax.swing.JDialog {
-
+    SocialNetwork snMen;
     /**
      * Creates new form Mensajes
      * @param messageString
@@ -24,12 +25,17 @@ public class Mensajes extends javax.swing.JDialog {
      * @param modal
      */
     
-    public Mensajes(String messageString, Frame owner, boolean modal) {
+    public Mensajes(String messageString, Frame owner, boolean modal,SocialNetwork sn) {
         super(owner, modal);
         initComponents();
         this.lblMensaje.setText(messageString);
-        
+        this.snMen = sn;
     }
+
+    public JEditorPane getLblMensaje() {
+        return lblMensaje;
+    }
+    
 
     private Mensajes(JFrame jFrame, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
@@ -49,7 +55,6 @@ public class Mensajes extends javax.swing.JDialog {
     private void initComponents() {
 
         btnOk = new javax.swing.JButton();
-        btnBackMain = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
         lblMensaje = new javax.swing.JEditorPane();
 
@@ -60,13 +65,6 @@ public class Mensajes extends javax.swing.JDialog {
         btnOk.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnOkActionPerformed(evt);
-            }
-        });
-
-        btnBackMain.setText("Volver Menú Prinicpal");
-        btnBackMain.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                btnBackMainActionPerformed(evt);
             }
         });
 
@@ -83,8 +81,7 @@ public class Mensajes extends javax.swing.JDialog {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(btnBackMain)
-                        .addGap(18, 18, 18)
+                        .addGap(164, 164, 164)
                         .addComponent(btnOk)))
                 .addContainerGap(150, Short.MAX_VALUE))
         );
@@ -94,9 +91,7 @@ public class Mensajes extends javax.swing.JDialog {
                 .addGap(35, 35, 35)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(52, 52, 52)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnBackMain)
-                    .addComponent(btnOk))
+                .addComponent(btnOk)
                 .addContainerGap(55, Short.MAX_VALUE))
         );
 
@@ -108,20 +103,29 @@ public class Mensajes extends javax.swing.JDialog {
        pr.setAlwaysOnTop(true);
        pr.setLocationRelativeTo(null);
        pr.setVisible(true);*/
-       this.setVisible(false);
-    }//GEN-LAST:event_btnOkActionPerformed
-
-    private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
-        // TODO add your handling code here:
-        
-        Menu_Bienvenida mb = new Menu_Bienvenida();
+       this.dispose();
+       /*
+        if (getLblMensaje().getText().contains("ERROR")) {
+            PanelDeRegistro pr = new PanelDeRegistro(snMen);
+            pr.setAlwaysOnTop(true);
+            pr.setLocationRelativeTo(null);
+            pr.setVisible(true);
+            this.setVisible(false);
+        }else{
+            Menu_Bienvenida mb = new Menu_Bienvenida(snMen);
+            mb.setAlwaysOnTop(true);
+            mb.setLocationRelativeTo(null);
+            mb.setVisible(true);
+            this.setVisible(false);
+        }*/
+       
+       /* Menu_Bienvenida mb = new Menu_Bienvenida(snMen);
         
         this.dispose();
         mb.setLocationRelativeTo(null);
-        mb.setVisible(true);
-        
-        
-    }//GEN-LAST:event_btnBackMainActionPerformed
+        mb.setVisible(true);*/
+       
+    }//GEN-LAST:event_btnOkActionPerformed
 
     /**
      * @param args the command line arguments
@@ -168,7 +172,6 @@ public class Mensajes extends javax.swing.JDialog {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnBackMain;
     private javax.swing.JButton btnOk;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JEditorPane lblMensaje;

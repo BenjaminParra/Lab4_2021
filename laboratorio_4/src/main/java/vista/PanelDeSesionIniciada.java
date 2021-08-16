@@ -12,13 +12,15 @@ import modelo.SocialNetwork;
  * @author Benjamin Parra
  */
 public class PanelDeSesionIniciada extends javax.swing.JFrame {
-
+    SocialNetwork snOn;
     /**
      * Creates new form PanelDeSesionIniciada
+     * @param sn
      */
-    public PanelDeSesionIniciada() {
+    public PanelDeSesionIniciada(SocialNetwork sn) {
         initComponents();
-        textNombreUsuario.setText("Benjamin Parra");
+        this.snOn = sn;
+        textNombreUsuario.setText(snOn.getUserOnline().getNombreUsuario());
     }
 
     /**
@@ -40,6 +42,7 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         radioButtonVisualize = new javax.swing.JRadioButton();
         jButton1 = new javax.swing.JButton();
         radioButtonLogout = new javax.swing.JRadioButton();
+        lblNombreUsuario = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -73,6 +76,8 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         buttonGroup1.add(radioButtonLogout);
         radioButtonLogout.setText("Cerrar sesión");
 
+        lblNombreUsuario.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -83,9 +88,11 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
                         .addGap(25, 25, 25)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(lblNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(67, 67, 67)
+                        .addGap(58, 58, 58)
                         .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -95,18 +102,20 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
                             .addComponent(radioButtonVisualize)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(radioButtonLogout))))
-                .addContainerGap(398, Short.MAX_VALUE))
+                .addContainerGap(53, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(17, 17, 17)
-                        .addComponent(textNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 39, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(102, 102, 102)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(lblNombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(textNombreUsuario, javax.swing.GroupLayout.DEFAULT_SIZE, 39, Short.MAX_VALUE))))
+                .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(radioButtonPost))
@@ -120,16 +129,15 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
                 .addComponent(radioButtonLogout)
                 .addGap(28, 28, 28)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(222, Short.MAX_VALUE))
+                .addContainerGap(306, Short.MAX_VALUE))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        SocialNetwork sn = new SocialNetwork("Facebook","27/12/2021");
-        String[] datosUser = {"benjaminParra","benja123"};
-        sn.registerUser(datosUser, sn.getFecha());
+        //SocialNetwork sn = new SocialNetwork("Facebook","27/12/2021");
+        
         if (radioButtonFollow.isSelected()) {
             //se abre ventana follow
         }
@@ -143,58 +151,41 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
             //se abre ventana visualizar
         }
         if (radioButtonLogout.isSelected()) {
-            sn.turnOffUser();
-            Mensajes mensaje = new Mensajes("Se ha cerrado sesión",this,true);
+            snOn.turnOffUser();
+            Mensajes mensaje = new Mensajes("Se ha cerrado sesión",this,true,snOn);
             mensaje.setLocationRelativeTo(null);
             mensaje.setVisible(true);
             this.dispose();
-            Menu_Bienvenida mB = new Menu_Bienvenida();
+            Menu_Bienvenida mB = new Menu_Bienvenida(snOn);
             mB.setLocationRelativeTo(null);
             mB.setVisible(true);
             
+        }else{
+            Mensajes mensaje = new Mensajes("Seleccione alguna de las opciones",this,true,snOn);
+            mensaje.setLocationRelativeTo(null);
+            mensaje.setVisible(true);
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
      */
+    /*
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PanelDeSesionIniciada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PanelDeSesionIniciada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PanelDeSesionIniciada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PanelDeSesionIniciada.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
                 new PanelDeSesionIniciada().setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.ButtonGroup buttonGroup1;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblNombreUsuario;
     private javax.swing.JRadioButton radioButtonFollow;
     private javax.swing.JRadioButton radioButtonLogout;
     private javax.swing.JRadioButton radioButtonPost;

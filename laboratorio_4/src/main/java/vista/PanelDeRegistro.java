@@ -14,12 +14,14 @@ import modelo.Validator;
  * @author Benjamin Parra
  */
 public class PanelDeRegistro extends javax.swing.JFrame {
-
+    SocialNetwork snRegistro;
     /**
      * Creates new form PanelDeRegistro
+     * @param sn
      */
-    public PanelDeRegistro() {
+    public PanelDeRegistro(SocialNetwork sn) {
         initComponents();
+        this.snRegistro = sn;
     }
 
     /**
@@ -122,7 +124,7 @@ public class PanelDeRegistro extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        SocialNetwork sn = new SocialNetwork("facebook","12/08/2021");
+        
         Validator validator = new Validator();
         ValidationResponse validationResponse = new ValidationResponse();
         
@@ -131,16 +133,18 @@ public class PanelDeRegistro extends javax.swing.JFrame {
         
         String password = textPass.getText();
         String[] usuarioString = {nombreUsuario,password};
-        validationResponse = validator.validadorUsuario(usuarioString , sn);
+        validationResponse = validator.validadorUsuario(usuarioString , snRegistro);
         if (validationResponse.isEsValido()) {
-            this.dispose();
-            sn.registerUser(usuarioString, sn.getFecha());
-            Mensajes nm = new Mensajes("El usuario se ha registrado exitosamente",this,true);
+            
+            snRegistro.registerUser(usuarioString, snRegistro.getFecha());
+            Mensajes nm = new Mensajes("El usuario se ha registrado exitosamente",this,true,snRegistro);
             nm.setLocationRelativeTo(null);
             nm.setVisible(true);
+            textNombreUsuario.setText("");
+            textPass.setText("");
         }else if (!validationResponse.isEsValido()) {
             //this.dispose();
-            MensajesError nm = new MensajesError(validationResponse.getMensaje(),this,true);
+            Mensajes nm = new Mensajes(validationResponse.getMensaje(),this,true,snRegistro);
             nm.setLocationRelativeTo(null);
             nm.setVisible(true);
             
@@ -151,7 +155,7 @@ public class PanelDeRegistro extends javax.swing.JFrame {
 
     private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
         // TODO add your handling code here:
-        Menu_Bienvenida mb = new Menu_Bienvenida();
+        Menu_Bienvenida mb = new Menu_Bienvenida(snRegistro);
         mb.setLocationRelativeTo(this);
         this.dispose();
         
@@ -161,37 +165,15 @@ public class PanelDeRegistro extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    /*
     public static void main(String args[]) {
-        /* Set the Nimbus look and feel */
-        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html 
-         */
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
-            }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(PanelDeRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(PanelDeRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(PanelDeRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(PanelDeRegistro.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        }
-        //</editor-fold>
-
-        /* Create and display the form */
+        
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new PanelDeRegistro().setVisible(true);
+                new PanelDeRegistro(snRegistro).setVisible(true);
             }
         });
-    }
+    }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBackMain;
