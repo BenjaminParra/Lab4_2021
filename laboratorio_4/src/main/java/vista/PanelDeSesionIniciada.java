@@ -246,7 +246,10 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         //SocialNetwork sn = new SocialNetwork("Facebook","27/12/2021");
         
         if (radioButtonFollow.isSelected()) {
-            //se abre ventana follow
+            PanelSeguir pS = new PanelSeguir(snOn);
+            pS.setLocationRelativeTo(null);
+            pS.setVisible(true);
+            this.dispose();
         }
         if (radioButtonPost.isSelected()) {
             //se abre ventana follow

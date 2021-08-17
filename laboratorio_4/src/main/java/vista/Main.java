@@ -27,8 +27,11 @@ public class Main {
         //String[] fechaClase = fechaFormateada.split("/");
         System.out.println(fechaFormateada);
         Usuario benja = new  Usuario("benjaParra", "benja123", fechaFormateada);
+        Usuario chilo = new Usuario("chiloParra","chilo123",fechaFormateada);
+        
         SocialNetwork sn = new SocialNetwork("Facebook",fechaFormateada);
         sn.getUsuarios().add(benja);
+        sn.getUsuarios().add(chilo);
         benja.post("Hola a todos.text", sn);
         benja.share("1", sn);
         //sn.registerUser(benja, sn.getFecha());

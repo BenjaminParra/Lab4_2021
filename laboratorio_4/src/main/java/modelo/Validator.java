@@ -328,7 +328,7 @@ public class Validator {
             if (socialNetwork.estaRegistrado(usuario)) {
                 if (socialNetwork.getUserOnline().getAmigos().contains(socialNetwork.getUsuarioConNombre(usuario))) {
                     esValido = false;
-                    mensajeValidacion = mensajeValidacion + "\nERROR: El usuario:"+usuario+" ya se encuentra en la lista de amigos de"+socialNetwork.getUserOnline().getNombreUsuario();
+                    mensajeValidacion = mensajeValidacion + "\nERROR: El usuario:"+usuario+" ya se encuentra en la lista de amigos de "+socialNetwork.getUserOnline().getNombreUsuario();
                 }
                 if (socialNetwork.getUserOnline().getNombreUsuario().equals(usuario)) {
                     esValido = false;
