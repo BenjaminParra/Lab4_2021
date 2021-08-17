@@ -31,6 +31,7 @@ public class Post {
         this.fechaDePublicacion = fechaDePublicacion;
         this.contenido = contenido;
         
+        
     }
     /**
      * Crea una publicacion con destinatarios
@@ -47,6 +48,22 @@ public class Post {
         this.contenido = contenido;
         receptores.add(receptor);
         
+    }
+
+    public Integer getID() {
+        return ID;
+    }
+
+    public Usuario getUser() {
+        return user;
+    }
+
+    public String getFechaDePublicacion() {
+        return fechaDePublicacion;
+    }
+
+    public ArrayList<Usuario> getReceptores() {
+        return receptores;
     }
 
     
@@ -82,7 +99,7 @@ public class Post {
         return conStrings[0]+"."+conStrings[1];
     }
     
-    
+   
 
     /**
      * Convierte la publicacion en un string entendible para el usuario

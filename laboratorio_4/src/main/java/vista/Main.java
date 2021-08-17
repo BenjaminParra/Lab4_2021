@@ -5,7 +5,10 @@
  */
 package vista;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import modelo.SocialNetwork;
+import modelo.Usuario;
 
 /**
  *
@@ -18,9 +21,18 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-        SocialNetwork sn = new SocialNetwork("Facebook","27/16/2021");
-        String[] benja = {"benjaParra","benja123"};
-        sn.registerUser(benja, sn.getFecha());
+         Date date = new Date();
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        String fechaFormateada = sdf.format(date);
+        //String[] fechaClase = fechaFormateada.split("/");
+        System.out.println(fechaFormateada);
+        Usuario benja = new  Usuario("benjaParra", "benja123", fechaFormateada);
+        SocialNetwork sn = new SocialNetwork("Facebook",fechaFormateada);
+        sn.getUsuarios().add(benja);
+        benja.post("Hola a todos.text", sn);
+        benja.share("1", sn);
+        //sn.registerUser(benja, sn.getFecha());
+        
         /*Menu_Bienvenida mb = new Menu_Bienvenida();
         mb.setLocationRelativeTo(null);
         mb.setVisible(true);*/

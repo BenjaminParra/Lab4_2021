@@ -33,6 +33,11 @@ public class SocialNetwork {
     public String getFecha() {
         return fecha;
     }
+
+    public ArrayList<Usuario> getUsuarios() {
+        return usuarios;
+    }
+    
     
     /**
      * Se encarga de concatenar las "traducciones" de las publicaciones

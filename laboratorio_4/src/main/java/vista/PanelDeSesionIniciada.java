@@ -5,6 +5,8 @@
  */
 package vista;
 
+import java.util.ArrayList;
+import modelo.Post;
 import modelo.SocialNetwork;
 
 /**
@@ -13,6 +15,7 @@ import modelo.SocialNetwork;
  */
 public class PanelDeSesionIniciada extends javax.swing.JFrame {
     SocialNetwork snOn;
+    
     /**
      * Creates new form PanelDeSesionIniciada
      * @param sn
@@ -21,6 +24,57 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         initComponents();
         this.snOn = sn;
         textNombreUsuario.setText(snOn.getUserOnline().getNombreUsuario());
+        mostrar();
+
+    }
+    
+    public void mostrar(){
+        String matriz[][] = new String[snOn.getUserOnline().getPosts().size()][5];
+        
+        for (int i = 0; i < snOn.getUserOnline().getPosts().size(); i++) {
+            
+            matriz[i][0] = snOn.getUserOnline().getPosts().get(i).getID()+"";
+                matriz[i][1] = snOn.getUserOnline().getPosts().get(i).getUser().getNombreUsuario();
+                matriz[i][2] = snOn.getUserOnline().getPosts().get(i).getContenido();
+                if (snOn.getUserOnline().getPosts().get(i).getReceptores().isEmpty()) {
+                matriz[i][3] = "vacio";
+                }else{
+                    matriz[i][3] = snOn.getUserOnline().getPosts().get(i).getReceptores().toString();
+                }
+                
+                matriz[i][4] = snOn.getUserOnline().getPosts().get(i).getFechaDePublicacion();
+           
+            
+        }
+        
+        tablaPosts.setModel(new javax.swing.table.DefaultTableModel(
+                
+            matriz,
+            new String [] {
+                "ID", "Usuario remitente", "Contenido", "Usuario receptor", "Fecha de creación"
+            }
+        ));
+        
+       // tablaPosts.getColumnModel().getColumn(0).setPreferredWidth(20);
+        tablaPosts.getColumnModel().getColumn(0).setResizable(false);
+        tablaPosts.getColumnModel().getColumn(1).setResizable(false);
+        tablaPosts.getColumnModel().getColumn(2).setResizable(false);
+        tablaPosts.getColumnModel().getColumn(3).setResizable(false);
+        tablaPosts.getColumnModel().getColumn(4).setResizable(false);
+        tablaPosts.getColumnModel().getColumn(0).setMaxWidth(30);
+        tablaPosts.getColumnModel().getColumn(0).setMinWidth(30);
+        tablaPosts.getColumnModel().getColumn(1).setMaxWidth(125);
+        tablaPosts.getColumnModel().getColumn(1).setMinWidth(125);
+        tablaPosts.getColumnModel().getColumn(2).setMaxWidth(700);
+        tablaPosts.getColumnModel().getColumn(2).setMinWidth(700);
+        tablaPosts.getColumnModel().getColumn(3).setMaxWidth(175);
+        tablaPosts.getColumnModel().getColumn(3).setMinWidth(175);
+        tablaPosts.getColumnModel().getColumn(4).setMaxWidth(125);
+        tablaPosts.getColumnModel().getColumn(4).setMinWidth(125);
+        tablaPosts.getTableHeader().setReorderingAllowed(false);
+        
+        
+        
     }
 
     /**
@@ -43,6 +97,9 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         jButton1 = new javax.swing.JButton();
         radioButtonLogout = new javax.swing.JRadioButton();
         lblNombreUsuario = new javax.swing.JLabel();
+        jScrollPane1 = new javax.swing.JScrollPane();
+        tablaPosts = new javax.swing.JTable();
+        jLabel3 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -78,12 +135,58 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
 
         lblNombreUsuario.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
 
+        tablaPosts.setModel(new javax.swing.table.DefaultTableModel(
+            new Object [][] {
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null},
+                {null, null, null, null, null}
+            },
+            new String [] {
+                "ID", "Usuario remitente", "Contenido", "Usuario receptor", "Fecha de creación"
+            }
+        ) {
+            boolean[] canEdit = new boolean [] {
+                false, false, false, false, false
+            };
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
+        });
+        tablaPosts.setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
+        tablaPosts.setRowHeight(30);
+        tablaPosts.setRowMargin(1);
+        tablaPosts.setShowGrid(true);
+        tablaPosts.setShowHorizontalLines(true);
+        jScrollPane1.setViewportView(tablaPosts);
+        if (tablaPosts.getColumnModel().getColumnCount() > 0) {
+            tablaPosts.getColumnModel().getColumn(0).setResizable(false);
+            tablaPosts.getColumnModel().getColumn(0).setPreferredWidth(30);
+            tablaPosts.getColumnModel().getColumn(1).setResizable(false);
+            tablaPosts.getColumnModel().getColumn(2).setResizable(false);
+            tablaPosts.getColumnModel().getColumn(2).setPreferredWidth(400);
+            tablaPosts.getColumnModel().getColumn(3).setResizable(false);
+            tablaPosts.getColumnModel().getColumn(4).setResizable(false);
+        }
+
+        jLabel3.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        jLabel3.setText("Publicaciones en el perfil");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addContainerGap()
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1157, javax.swing.GroupLayout.PREFERRED_SIZE)))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
                         .addComponent(jLabel1)
@@ -102,7 +205,7 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
                             .addComponent(radioButtonVisualize)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(radioButtonLogout))))
-                .addContainerGap(53, Short.MAX_VALUE))
+                .addContainerGap(136, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -129,7 +232,11 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
                 .addComponent(radioButtonLogout)
                 .addGap(28, 28, 28)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(306, Short.MAX_VALUE))
+                .addGap(42, 42, 42)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(41, Short.MAX_VALUE))
         );
 
         pack();
@@ -185,12 +292,15 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JLabel lblNombreUsuario;
     private javax.swing.JRadioButton radioButtonFollow;
     private javax.swing.JRadioButton radioButtonLogout;
     private javax.swing.JRadioButton radioButtonPost;
     private javax.swing.JRadioButton radioButtonShare;
     private javax.swing.JRadioButton radioButtonVisualize;
+    private javax.swing.JTable tablaPosts;
     private javax.swing.JLabel textNombreUsuario;
     // End of variables declaration//GEN-END:variables
 }
