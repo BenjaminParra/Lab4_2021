@@ -65,6 +65,10 @@ public class Post {
     public ArrayList<Usuario> getReceptores() {
         return receptores;
     }
+    
+    public Usuario getReceptor(ArrayList<Usuario> entrada){
+        return entrada.get(0);
+    }
 
     
     

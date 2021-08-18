@@ -140,7 +140,7 @@ public class PanelDeRegistro extends javax.swing.JFrame {
             Mensajes nm = new Mensajes("El usuario se ha registrado exitosamente",this,true,snRegistro);
             nm.setLocationRelativeTo(null);
             nm.setVisible(true);
-            textNombreUsuario.setText("");
+            //textNombreUsuario.setText("");
             textPass.setText("");
         }else if (!validationResponse.isEsValido()) {
             //this.dispose();

@@ -22,7 +22,7 @@ public class Validator {
 	String mensajeValidacion = "";
         if (!esUsuario(usuario)) {
             esValido = false;
-            mensajeValidacion = mensajeValidacion +"\n: Asegurese de no dejar campos en blanco";
+            mensajeValidacion = mensajeValidacion +"\nERROR: Asegurese de no dejar campos en blanco";
             
         }
         if (socialNetwork.estaRegistrado(usuario[0])) {
@@ -104,7 +104,7 @@ public class Validator {
 	String mensajeValidacion = "";
         if (!esPostSolo(post)) {
             esValido = false;
-            mensajeValidacion = mensajeValidacion + "\nERROR: Asegurese de ingresar los datos de la publicacion con el siguiente formato >>Post.TipoDeArchivo<<";
+            mensajeValidacion = mensajeValidacion + "\nERROR: Asegurese de ingresar todos los datos para realizar la publicación";
             }else{
             Post postSolo = new Post(socialNetwork.getUserOnline(), fechita, post[0]+"."+post[1],socialNetwork.getIDNewPost());
             if (!postSolo.ValidaContenido()) {
@@ -137,7 +137,7 @@ public class Validator {
 	String mensajeValidacion = "";
         if (!esPostAmigos(postAmigosSplit)) {
             esValido = false;
-             mensajeValidacion = mensajeValidacion + "\nERROR: Asegurese de ingresar los datos de la publicacion con el siguiente formato >>contenido.tipo/user1,user2,...<<";
+             mensajeValidacion = mensajeValidacion + "\nERROR: Asegurese de ingresar todos los datos para realizar la publicación";
         }else{
             String[] post2 = postAmigosSplit[0].split("\\.");
             String[] receptores = postAmigosSplit[1].split(",");
@@ -176,7 +176,7 @@ public class Validator {
      * @return 
      */
     public boolean esPostSolo(String[] postSplit){
-        return postSplit.length == 2 && !postSplit[0].isEmpty() && !postSplit[1].isEmpty();
+        return postSplit.length == 2 && !postSplit[0].isEmpty() && !postSplit[1].isEmpty()&&(postSplit[0].length()!=1&& !postSplit[0].equalsIgnoreCase(" "));
     }
     
     /**

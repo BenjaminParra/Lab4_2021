@@ -1,9 +1,9 @@
 modelo/ValidationResponse.java
  modelo.ValidationResponse
-vista/PanelDeSesionIniciada.java
- vista.PanelDeSesionIniciada
- vista.PanelDeSesionIniciada$1
- vista.PanelDeSesionIniciada$2
+vista/PanelSeguir.java
+ vista.PanelSeguir
+ vista.PanelSeguir$1
+ vista.PanelSeguir$2
 vista/Mensajes.java
  vista.Mensajes
  vista.Mensajes$1
@@ -24,15 +24,22 @@ vista/PanelDeInicio.java
 vista/Main.java
  vista.Main
  vista.Main$1
+modelo/Validator.java
+ modelo.Validator
 vista/PanelDeRegistro.java
  vista.PanelDeRegistro
  vista.PanelDeRegistro$1
  vista.PanelDeRegistro$2
 modelo/SocialNetwork.java
  modelo.SocialNetwork
-modelo/Validator.java
- modelo.Validator
-vista/PanelSeguir.java
- vista.PanelSeguir
- vista.PanelSeguir$1
- vista.PanelSeguir$2
+vista/PanelDeSesionIniciada.java
+ vista.PanelDeSesionIniciada
+ vista.PanelDeSesionIniciada$1
+ vista.PanelDeSesionIniciada$2
+ vista.PanelDeSesionIniciada$3
+vista/PanelPost.java
+ vista.PanelPost
+ vista.PanelPost$1
+ vista.PanelPost$2
+ vista.PanelPost$3
+ vista.PanelPost$4

@@ -34,6 +34,7 @@ public class Main {
         sn.getUsuarios().add(chilo);
         benja.post("Hola a todos.text", sn);
         benja.share("1", sn);
+        benja.follow(chilo.getNombreUsuario(), sn);
         //sn.registerUser(benja, sn.getFecha());
         
         /*Menu_Bienvenida mb = new Menu_Bienvenida();
