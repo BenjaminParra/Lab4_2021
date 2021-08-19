@@ -84,8 +84,10 @@ public class PanelPost extends javax.swing.JFrame {
         btnPost = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
         jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel1.setText("Crear publicación");
@@ -152,47 +154,50 @@ public class PanelPost extends javax.swing.JFrame {
 
         jLabel3.setText("Tipo");
 
+        jLabel4.setText("Amigos");
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(46, 46, 46)
-                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addContainerGap()
+                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                        .addGroup(layout.createSequentialGroup()
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGap(18, 18, 18)
+                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
+                                .addComponent(btnVideo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnUrl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnPhoto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnAudio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(btnPost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
-                            .addComponent(btnVideo, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnUrl, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnPhoto, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnAudio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(btnPost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE))))
-                .addContainerGap(15, Short.MAX_VALUE))
+                            .addComponent(jLabel4)
+                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(jLabel4)
+                .addGap(2, 2, 2)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(8, 8, 8)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(6, 6, 6)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
@@ -210,9 +215,9 @@ public class PanelPost extends javax.swing.JFrame {
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
-                        .addGap(9, 9, 9)
+                        .addGap(5, 5, 5)
                         .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(9, Short.MAX_VALUE))
+                .addContainerGap(12, Short.MAX_VALUE))
         );
 
         pack();
@@ -242,50 +247,55 @@ public class PanelPost extends javax.swing.JFrame {
             Mensajes mensaje = new Mensajes("Seleccione algun tipo de publicación",this,true,snPost);
             mensaje.setLocationRelativeTo(null);
             mensaje.setVisible(true);
+            
+        }
+        if (textContenido.getText().isEmpty()) {
+            Mensajes mensajeCn = new Mensajes("No deje en blanco el contenido",this,true,snPost);
+            mensajeCn.setLocationRelativeTo(null);
+            mensajeCn.setVisible(true);
         }else{
-            //obtiene la lista de usuario destacados en la lista
-        for (int i = 0; i < snPost.getUserOnline().getAmigos().size(); i++) {
-            if ("true".equalsIgnoreCase(""+modelo.getValueAt(i, 1))) {
-                amigosSeleccionados.add(snPost.getUserOnline().getAmigos().get(i).getNombreUsuario());
-                //amigosSeleccionados.add((String) modelo.getValueAt(i, 0));
+            for (int i = 0; i < snPost.getUserOnline().getAmigos().size(); i++) {
+                if ("true".equalsIgnoreCase(""+modelo.getValueAt(i, 1))) {
+                    amigosSeleccionados.add(snPost.getUserOnline().getAmigos().get(i).getNombreUsuario());
+                    //amigosSeleccionados.add((String) modelo.getValueAt(i, 0));
+                }
             }
-        }
-        for (int i = 0; i < amigosSeleccionados.size(); i++) {
+            for (int i = 0; i < amigosSeleccionados.size(); i++) {
                 amigosComo = amigosSeleccionados.get(i)+",";
-        }
-        String[] nuevoString = new String[amigosSeleccionados.size()];
-        for (int i = 0; i < amigosSeleccionados.size(); i++) {
-            nuevoString[i] = amigosSeleccionados.get(i);
-        }
-        if (amigosSeleccionados.isEmpty()) {
-            String[] contenidoTipo = {textContenido.getText(),getBtnSelected()};
-            validationResponse = validator.validadorPostSolo(contenidoTipo, snPost,snPost.getFecha());
-            if (!validationResponse.isEsValido()) {
-                Mensajes mensaje = new Mensajes(validationResponse.getMensaje(),this,true,snPost);
-                mensaje.setLocationRelativeTo(null);
-                mensaje.setVisible(true);
-                textContenido.setText("");
-            }else{
-                snPost.getUserOnline().post(contenidoTipo[0]+contenidoTipo[1], snPost);
-                Mensajes mensaje = new Mensajes("El usuario "+snPost.getUserOnline().getNombreUsuario()+" realizo la publicacion en su muro",this,true,snPost);
-                mensaje.setLocationRelativeTo(null);
-                mensaje.setVisible(true);
             }
-        }else if (!amigosSeleccionados.isEmpty()){
-            String[] contenidoTipo = {textContenido.getText(),getBtnSelected()};
-            String[] contenidoPost = {contenidoTipo[0]+contenidoTipo[1],amigosComo};
-            validationResponse = validator.validadorPost(contenidoPost, snPost);
-            if (!validationResponse.isEsValido()) {
-                Mensajes mensaje = new Mensajes(validationResponse.getMensaje(),this,true,snPost);
-                mensaje.setLocationRelativeTo(null);
-                mensaje.setVisible(true);
-            }else{
-                snPost.getUserOnline().post(contenidoTipo[0]+contenidoTipo[1], nuevoString, snPost);
-                Mensajes mensaje = new Mensajes("CACA "+snPost.getUserOnline().getNombreUsuario()+" realizo la publicacion en su muro",this,true,snPost);
-                mensaje.setLocationRelativeTo(null);
-                mensaje.setVisible(true);
+            String[] nuevoString = new String[amigosSeleccionados.size()];
+            for (int i = 0; i < amigosSeleccionados.size(); i++) {
+                nuevoString[i] = amigosSeleccionados.get(i);
             }
-        }
+            if (amigosSeleccionados.isEmpty()) {
+                String[] contenidoTipo = {textContenido.getText(),getBtnSelected()};
+                validationResponse = validator.validadorPostSolo(contenidoTipo, snPost,snPost.getFecha());
+                if (!validationResponse.isEsValido()) {
+                    Mensajes mensaje = new Mensajes(validationResponse.getMensaje(),this,true,snPost);
+                    mensaje.setLocationRelativeTo(null);
+                    mensaje.setVisible(true);
+                    textContenido.setText("");
+                }else{
+                    snPost.getUserOnline().post(contenidoTipo[0]+contenidoTipo[1], snPost);
+                    Mensajes mensaje = new Mensajes("El usuario "+snPost.getUserOnline().getNombreUsuario()+" realizo la publicacion en su muro",this,true,snPost);
+                    mensaje.setLocationRelativeTo(null);
+                    mensaje.setVisible(true);
+                }
+            }else if (!amigosSeleccionados.isEmpty()){
+                String[] contenidoTipo = {textContenido.getText(),getBtnSelected()};
+                String[] contenidoPost = {contenidoTipo[0]+contenidoTipo[1],amigosComo};
+                validationResponse = validator.validadorPost(contenidoPost, snPost);
+                if (!validationResponse.isEsValido()) {
+                    Mensajes mensaje = new Mensajes(validationResponse.getMensaje(),this,true,snPost);
+                    mensaje.setLocationRelativeTo(null);
+                    mensaje.setVisible(true);
+                }else{
+                    snPost.getUserOnline().post(contenidoTipo[0]+contenidoTipo[1], nuevoString, snPost);
+                    Mensajes mensaje = new Mensajes(snPost.mensajePostAmigos(nuevoString)+"\n",this,true,snPost);
+                    mensaje.setLocationRelativeTo(null);
+                    mensaje.setVisible(true);
+                }
+            }
         }
     }//GEN-LAST:event_btnPostActionPerformed
 
@@ -303,6 +313,7 @@ public class PanelPost extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JTable tableAmigos;

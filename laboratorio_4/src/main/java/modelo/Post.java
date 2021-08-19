@@ -69,16 +69,9 @@ public class Post {
     public Usuario getReceptor(ArrayList<Usuario> entrada){
         return entrada.get(0);
     }
-
-    
-    
-    
     public String getContenido() {
         return contenido;
     }
-
-
-    
     /**
      * Valida que el tipo de la publicacion sea los estipulados
      * @return Verdadero en caso de que sea valido y false en caso contrario
@@ -117,15 +110,37 @@ public class Post {
                 
             }
             return "El usuario "+user.nombreUsuario +" ha realizado la publicacion >>"+contenido+"<< con el ID-"+ID +" el dia "+fechaDePublicacion;
+            
         }else{
             if (contenido.contains("El usuario ")) {
                 return "El usuario "+user.nombreUsuario +" ha compartido la publicacion <<"+contenido+">> con el ID-"+ID +" en el muro de "+receptores.get(0).nombreUsuario+" el dia "+fechaDePublicacion;
                 
             }
             return "El usuario "+user.nombreUsuario +" ha realizado la publicacion >>"+contenido+"<< con el ID-"+ID +" en el muro de "+receptores.get(0).nombreUsuario+" el dia "+fechaDePublicacion;
-            //return "Post{" + "ID=" + ID + ", user=" + user.nombreUsuario + ", fechaDePublicacion=" + fechaDePublicacion + ", contenido=" + contenido + ", receptor=" + receptor + '}';
+            
         }
         
     }
     
+    
+    public String stringTablas(){
+        if (receptores.isEmpty()) {
+            if (contenido.contains("El usuario ")) {
+                //return "El usuario "+user.nombreUsuario +" ha compartido la publicacion <<"+contenido+">> con el ID-"+ID +" el dia "+fechaDePublicacion;
+                return "Ha compartido la publicacion <<"+contenido+">>";
+            }
+            //return "El usuario "+user.nombreUsuario +" ha realizado la publicacion >>"+contenido+"<< con el ID-"+ID +" el dia "+fechaDePublicacion;
+            return contenido;
+        }else{
+            if (contenido.contains("El usuario ")) {
+                //return "El usuario "+user.nombreUsuario +" ha compartido la publicacion <<"+contenido+">> con el ID-"+ID +" en el muro de "+receptores.get(0).nombreUsuario+" el dia "+fechaDePublicacion;
+                return " Ha compartido la publicacion <<"+contenido+">> con el ID-"+ID +" en el muro de "+receptores.get(0).nombreUsuario;
+            }
+            //return "El usuario "+user.nombreUsuario +" ha realizado la publicacion >>"+contenido+"<< con el ID-"+ID +" en el muro de "+receptores.get(0).nombreUsuario+" el dia "+fechaDePublicacion;
+            return contenido;
+            //return "Post{" + "ID=" + ID + ", user=" + user.nombreUsuario + ", fechaDePublicacion=" + fechaDePublicacion + ", contenido=" + contenido + ", receptor=" + receptor + '}';
+        }
+        
+    
+    }
 }

@@ -315,10 +315,18 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
             this.dispose();
         }
         if (radioButtonShare.isSelected()){
-            //se abre ventanaShare
+            PanelShare pSh = new PanelShare(snOn);
+            pSh.setLocationRelativeTo(null);
+            pSh.setVisible(true);
+            this.dispose();
+            
         }
         if (radioButtonVisualize.isSelected()) {
             //se abre ventana visualizar
+            VisualizeSN vSN = new VisualizeSN(snOn);
+            vSN.setLocationRelativeTo(null);
+            vSN.setVisible(true);
+            this.dispose();
         }
         if (radioButtonLogout.isSelected()) {
             snOn.turnOffUser();

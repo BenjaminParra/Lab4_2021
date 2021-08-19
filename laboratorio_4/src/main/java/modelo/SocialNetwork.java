@@ -361,6 +361,23 @@ public class SocialNetwork {
         return seguidores;
     }
     
+    public String seguidoresString(Usuario user){
+        String salida = "";
+        if (getSeguidores(user).size()==1) {
+            salida = getSeguidores(user).get(0);
+        }else{
+            for (int i = 0; i < getSeguidores(user).size(); i++) {
+                if (i==0) {
+                    salida = getSeguidores(user).get(i);
+                }else{
+                    salida = salida + ","+getSeguidores(user).get(i);
+                }
+            }
+        }
+        return salida;
+        
+    }
+    
     public ArrayList<Usuario> usuariosRegistrados(String nombreString){
         ArrayList<Usuario> usuariosStrings = new ArrayList();
         for (int i = 0; i < usuarios.size(); i++) {

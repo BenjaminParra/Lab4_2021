@@ -33,7 +33,7 @@ public class Main {
         sn.getUsuarios().add(benja);
         sn.getUsuarios().add(chilo);
         benja.post("Hola a todos.text", sn);
-        benja.share("1", sn);
+        
         benja.follow(chilo.getNombreUsuario(), sn);
         //sn.registerUser(benja, sn.getFecha());
         

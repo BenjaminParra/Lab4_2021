@@ -168,15 +168,30 @@ public class Validator {
      * @return 
      */
     public boolean esPostAmigos(String[] postAmigosSplit){
-        return postAmigosSplit.length == 2 && !postAmigosSplit[0].isEmpty() && !postAmigosSplit[1].isEmpty();
+        String[] post2 = postAmigosSplit[0].split("\\.");
+        return postAmigosSplit.length == 2 && !postAmigosSplit[0].isEmpty() && !postAmigosSplit[1].isEmpty() && !soloEspacios(post2[0]);
     }
+    
+    
     /**
      * Valida los datos ingresados para publicar en el propio perfil
      * @param postSplit
      * @return 
      */
     public boolean esPostSolo(String[] postSplit){
-        return postSplit.length == 2 && !postSplit[0].isEmpty() && !postSplit[1].isEmpty()&&(postSplit[0].length()!=1&& !postSplit[0].equalsIgnoreCase(" "));
+        return postSplit.length == 2 && !postSplit[0].isEmpty() && !postSplit[1].isEmpty()&& !soloEspacios(postSplit[0]);
+    }
+    
+    public boolean soloEspacios(String palabra){
+        String[] palabraList = palabra.split("");
+        Integer contador = 0;
+        for (int i = 0; i < palabraList.length; i++) {
+            if (palabraList[i].equalsIgnoreCase(" ")) {
+                contador = contador + 1;
+            }
+        }
+        return contador==palabraList.length;
+        
     }
     
     /**
@@ -209,12 +224,12 @@ public class Validator {
         boolean esValido = true;
 	String mensajeValidacion = "";
         Integer idInt = Integer.parseInt(id);
-        if (!esNumero(id)) {
+        if (!isNumeric(id)) {
             esValido = false;
             mensajeValidacion = mensajeValidacion + "\nERROR: Por favor solo ingrese números";
             
-        }
-        if (socialNetwork.getPublicaciones().size()<idInt) {
+        }else{
+            if (socialNetwork.getPublicaciones().size()<idInt || idInt <= 0) {
             esValido = false;
             mensajeValidacion = mensajeValidacion + "\nERROR: La publicacion con ID "+id+" no existe";
             
@@ -224,10 +239,26 @@ public class Validator {
             mensajeValidacion = mensajeValidacion + "\nERROR: No existen publicaciones para compartir";
             
         }
+        }
+        
         validationResponse.setEsValido(esValido);
         validationResponse.setMensaje(mensajeValidacion);
         return validationResponse;
         
+    }
+    
+    public static boolean isNumeric(String cadena) {
+
+        boolean resultado;
+
+        try {
+            Integer.parseInt(cadena);
+            resultado = true;
+        } catch (java.lang.NumberFormatException excepcion) {
+            resultado = false;
+        }
+
+        return resultado;
     }
     
     /**
