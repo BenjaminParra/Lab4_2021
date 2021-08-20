@@ -6,6 +6,9 @@
 package vista;
 
 import java.awt.Frame;
+import java.awt.Image;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
 import javax.swing.JButton;
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
@@ -18,6 +21,8 @@ import modelo.SocialNetwork;
  */
 public class Mensajes extends javax.swing.JDialog {
     SocialNetwork snMen;
+    private ImageIcon imagen;
+    private Icon icono;
     /**
      * Creates new form Mensajes
      * @param messageString
@@ -30,6 +35,18 @@ public class Mensajes extends javax.swing.JDialog {
         initComponents();
         this.lblMensaje.setText(messageString);
         this.snMen = sn;
+        if (messageString.contains("ERROR")) {
+            pintarImagen(imageError, "src/main/java/vista/semtex.png");
+        }else{
+            pintarImagen(imageError, "src/main/java/vista/logoInformation.png");
+        }
+        
+        if (messageString.contains("ERROR")) {
+            lblNombre.setText("ERROR");
+        }else{
+            lblNombre.setText("Información");
+        }
+        
     }
 
     public JEditorPane getLblMensaje() {
@@ -41,7 +58,19 @@ public class Mensajes extends javax.swing.JDialog {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
 
-    
+    private void pintarImagen(JLabel lbl, String ruta){
+        this.imagen = new ImageIcon(ruta);
+        this.icono = new ImageIcon(
+                this.imagen.getImage().getScaledInstance(
+                        lbl.getWidth(), 
+                        lbl.getHeight(), 
+                        Image.SCALE_DEFAULT
+                )
+        );
+        lbl.setIcon(this.icono);
+        this.repaint();
+        
+    }
     
     
 
@@ -55,8 +84,10 @@ public class Mensajes extends javax.swing.JDialog {
     private void initComponents() {
 
         btnOk = new javax.swing.JButton();
-        jScrollPane1 = new javax.swing.JScrollPane();
-        lblMensaje = new javax.swing.JEditorPane();
+        imageError = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        lblMensaje = new javax.swing.JTextPane();
+        lblNombre = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DO_NOTHING_ON_CLOSE);
         setCursor(new java.awt.Cursor(java.awt.Cursor.DEFAULT_CURSOR));
@@ -68,31 +99,45 @@ public class Mensajes extends javax.swing.JDialog {
             }
         });
 
+        imageError.setText(".");
+
         lblMensaje.setEditable(false);
-        lblMensaje.setBorder(javax.swing.BorderFactory.createBevelBorder(javax.swing.border.BevelBorder.RAISED));
-        jScrollPane1.setViewportView(lblMensaje);
+        jScrollPane2.setViewportView(lblMensaje);
+
+        lblNombre.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
+        lblNombre.setText("jLabel1");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addGap(101, 101, 101)
+                .addGap(265, 265, 265)
+                .addComponent(btnOk)
+                .addContainerGap(296, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(imageError, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 354, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(164, 164, 164)
-                        .addComponent(btnOk)))
-                .addContainerGap(150, Short.MAX_VALUE))
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 286, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 244, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(170, 170, 170))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addGap(35, 35, 35)
-                .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 123, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(52, 52, 52)
+                .addGap(23, 23, 23)
+                .addComponent(lblNombre, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 127, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(layout.createSequentialGroup()
+                        .addGap(25, 25, 25)
+                        .addComponent(imageError, javax.swing.GroupLayout.PREFERRED_SIZE, 74, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(80, 80, 80)
                 .addComponent(btnOk)
-                .addContainerGap(55, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -173,7 +218,9 @@ public class Mensajes extends javax.swing.JDialog {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnOk;
-    private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JEditorPane lblMensaje;
+    private javax.swing.JLabel imageError;
+    private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JTextPane lblMensaje;
+    private javax.swing.JLabel lblNombre;
     // End of variables declaration//GEN-END:variables
 }

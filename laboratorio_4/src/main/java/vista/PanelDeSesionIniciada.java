@@ -5,7 +5,12 @@
  */
 package vista;
 
+import java.awt.Image;
 import java.util.ArrayList;
+import javax.swing.Icon;
+import javax.swing.ImageIcon;
+import javax.swing.JLabel;
+import javax.swing.JRadioButton;
 import modelo.Post;
 import modelo.SocialNetwork;
 
@@ -15,6 +20,8 @@ import modelo.SocialNetwork;
  */
 public class PanelDeSesionIniciada extends javax.swing.JFrame {
     SocialNetwork snOn;
+    private ImageIcon imagen;
+    private Icon icono;
     
     /**
      * Creates new form PanelDeSesionIniciada
@@ -26,6 +33,7 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         textNombreUsuario.setText(snOn.getUserOnline().getNombreUsuario());
         mostrar();
         mostrarAmigos();
+       // pintarImagen(lblNombreUsuario.getIcon(), "src/main/java/vista/addFriend.png");
 
     }
     
@@ -47,6 +55,21 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         tableAmigos.getColumnModel().getColumn(0).setResizable(false);
     }
     
+     private void pintarImagen(JLabel lbl, String ruta){
+        this.imagen = new ImageIcon(ruta);
+        this.icono = new ImageIcon(
+                this.imagen.getImage().getScaledInstance(
+                        lbl.getWidth(), 
+                        lbl.getHeight(), 
+                        Image.SCALE_DEFAULT
+                )
+        );
+        lbl.setIcon(this.icono);
+        this.repaint();
+        
+    }
+     
+     
     public void mostrar(){
         
         String matriz[][] = new String[snOn.getUserOnline().getPosts().size()][5];
@@ -129,7 +152,7 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         jLabel1.setText("Sesión Iniciada");
 
         textNombreUsuario.setBackground(new java.awt.Color(255, 0, 102));
-        textNombreUsuario.setFont(new java.awt.Font("sansserif", 1, 24)); // NOI18N
+        textNombreUsuario.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
         jLabel2.setText("Menú de opciones:");
 
@@ -239,12 +262,12 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
                         .addGap(19, 19, 19)
                         .addComponent(jLabel1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(lblNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(textNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(textNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -255,7 +278,7 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
                                     .addComponent(radioButtonShare)
                                     .addComponent(radioButtonVisualize)
                                     .addComponent(radioButtonLogout))
-                                .addGap(140, 140, 140)
+                                .addGap(129, 129, 129)
                                 .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 396, javax.swing.GroupLayout.PREFERRED_SIZE)))))
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
@@ -273,21 +296,22 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
-                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(radioButtonPost))
+                        .addGap(14, 14, 14)
+                        .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(radioButtonPost)
+                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(radioButtonFollow)
-                        .addGap(18, 18, 18)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(radioButtonShare)
-                        .addGap(18, 18, 18)
-                        .addComponent(radioButtonVisualize))
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radioButtonVisualize)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(radioButtonLogout))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(radioButtonLogout)
-                .addGap(18, 18, 18)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(42, 42, 42)
+                .addGap(73, 73, 73)
                 .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -341,7 +365,7 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         }else{
             if (!radioButtonFollow.isSelected()&& !radioButtonPost.isSelected()&&!radioButtonShare.isSelected()&&
                     !radioButtonVisualize.isSelected()&&!radioButtonLogout.isSelected()) {
-                Mensajes mensaje = new Mensajes("Seleccione alguna de las opciones",this,true,snOn);
+                Mensajes mensaje = new Mensajes("ERROR: Seleccione alguna de las opciones",this,true,snOn);
                 mensaje.setLocationRelativeTo(null);
                 mensaje.setVisible(true);
                 

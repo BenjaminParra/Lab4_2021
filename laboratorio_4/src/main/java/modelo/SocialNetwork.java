@@ -253,12 +253,12 @@ public class SocialNetwork {
         if (estaRegistrado(user)) {
             for (int i = 0; i < usuarios.size(); i++) {
                 if (usuarios.get(i).getNombreUsuario().equals(user) && !usuarios.get(i).getPassword().equals(password)) {
-                    mensaje = mensaje + "El usuario se encuentra registrado, pero la contraseña no es valida";
+                    mensaje = mensaje + "ERROR: El usuario se encuentra registrado, pero la contraseña no es valida";
                 }
             }
             
         }else{
-            mensaje = mensaje + "El usuario no se encuentra registrado";
+            mensaje = mensaje + "ERROR: El usuario no se encuentra registrado";
         }
         return mensaje;
     }

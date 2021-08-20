@@ -41,6 +41,7 @@ public class PanelDeRegistro extends javax.swing.JFrame {
         textPass = new javax.swing.JPasswordField();
         jButton1 = new javax.swing.JButton();
         btnBackMain = new javax.swing.JButton();
+        btnAyuda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -67,6 +68,15 @@ public class PanelDeRegistro extends javax.swing.JFrame {
             }
         });
 
+        btnAyuda.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        btnAyuda.setText("Ayuda");
+        btnAyuda.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        btnAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAyudaActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -79,21 +89,25 @@ public class PanelDeRegistro extends javax.swing.JFrame {
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(layout.createSequentialGroup()
-                                    .addComponent(btnBackMain)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(jButton1))
-                                .addGroup(layout.createSequentialGroup()
-                                    .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                        .addComponent(jLabel1)
-                                        .addComponent(jLabel2))
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                            .addGroup(layout.createSequentialGroup()
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(layout.createSequentialGroup()
+                                        .addComponent(jButton1)
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(btnBackMain))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(textNombreUsuario)
                                         .addComponent(textPass, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))))
                             .addComponent(jLabel4))))
-                .addContainerGap(294, Short.MAX_VALUE))
+                .addContainerGap(51, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAyuda)
+                .addGap(173, 173, 173))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -117,7 +131,9 @@ public class PanelDeRegistro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jButton1)
                     .addComponent(btnBackMain))
-                .addContainerGap(84, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAyuda)
+                .addContainerGap(9, Short.MAX_VALUE))
         );
 
         pack();
@@ -162,6 +178,13 @@ public class PanelDeRegistro extends javax.swing.JFrame {
         mb.setVisible(true);
     }//GEN-LAST:event_btnBackMainActionPerformed
 
+    private void btnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaActionPerformed
+        // TODO add your handling code here:
+        Mensajes nm = new Mensajes("Para registrar un usuario\n\n A) El nombre del usuario debe contener 6 caracteres (minimo 4 de ellos deben ser letras) y solo caracteres alfanumericos \n\n B) La contrasena debe tener un largo de 6 caracteres, debe contener al menos 3 numeros y no puede contener espacios \n\n C) La contrasena no puede ser igual que el nombre de usuario\n\n",this,true,snRegistro);
+        nm.setLocationRelativeTo(null);
+        nm.setVisible(true);
+    }//GEN-LAST:event_btnAyudaActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -176,6 +199,7 @@ public class PanelDeRegistro extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAyuda;
     private javax.swing.JButton btnBackMain;
     private javax.swing.JButton jButton1;
     private javax.swing.JLabel jLabel1;
