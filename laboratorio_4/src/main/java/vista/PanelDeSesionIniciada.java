@@ -147,6 +147,7 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         tableAmigos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
         jLabel1.setText("Sesión Iniciada");
@@ -339,10 +340,17 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
             this.dispose();
         }
         if (radioButtonShare.isSelected()){
-            PanelShare pSh = new PanelShare(snOn);
-            pSh.setLocationRelativeTo(null);
-            pSh.setVisible(true);
-            this.dispose();
+            if (snOn.getUserOnline().getPosts().isEmpty()) {
+                Mensajes mensaje = new Mensajes("No existen publicaciones en tu perfil para compartir",this,true,snOn);
+                mensaje.setLocationRelativeTo(null);
+                mensaje.setVisible(true);
+            }else{
+                PanelShare pSh = new PanelShare(snOn);
+                pSh.setLocationRelativeTo(null);
+                pSh.setVisible(true);
+                this.dispose();
+            }
+            
             
         }
         if (radioButtonVisualize.isSelected()) {

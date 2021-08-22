@@ -1,4 +1,4 @@
-/*
+ /*
  * To change this license header, choose License Headers in Project Properties.
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
@@ -23,6 +23,10 @@ public class PanelShare extends javax.swing.JFrame {
     SocialNetwork snShare;
     private ImageIcon imagen;
     private Icon icono;
+    ArrayList<String> amigosSeleccionados = new ArrayList();
+    Validator validator = new Validator();
+    String amigosComo = "";
+    ValidationResponse validationResponse = new ValidationResponse();
     /**
      * Creates new form PanelShare
      */
@@ -76,6 +80,8 @@ public class PanelShare extends javax.swing.JFrame {
         tablePosts.getColumnModel().getColumn(4).setMaxWidth(125);
         tablePosts.getColumnModel().getColumn(4).setMinWidth(125);
         tablePosts.getTableHeader().setReorderingAllowed(false);
+        
+        tablePosts.setEnabled(false);
         
         
         
@@ -131,11 +137,19 @@ public class PanelShare extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Object.class, java.lang.Boolean.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, true
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
+        tableAmigos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tableAmigos);
         if (tableAmigos.getColumnModel().getColumnCount() > 0) {
             tableAmigos.getColumnModel().getColumn(1).setMinWidth(30);
@@ -153,6 +167,7 @@ public class PanelShare extends javax.swing.JFrame {
                 "ID", "Usuario Remitente", "Contenido", "Usuario Receptor", "Fecha Creacion"
             }
         ));
+        tablePosts.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tablePosts);
 
         jLabel2.setText("Ingrese número del ID del post a compartir");
@@ -263,12 +278,7 @@ public class PanelShare extends javax.swing.JFrame {
 
     private void btnShareActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnShareActionPerformed
         String numeroPost = textNumeroPost.getText();
-        
         DefaultTableModel modelo = (DefaultTableModel)tableAmigos.getModel();
-        ArrayList<String> amigosSeleccionados = new ArrayList();
-        Validator validator = new Validator();
-        String amigosComo = "";
-        ValidationResponse validationResponse = new ValidationResponse();
         if (numeroPost.isEmpty()) {
             Mensajes mensaje = new Mensajes("ERROR: Ingrese un número de ID post",this,true,snShare);
             mensaje.setLocationRelativeTo(null);

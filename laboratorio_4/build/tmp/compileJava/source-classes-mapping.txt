@@ -1,23 +1,17 @@
 modelo/ValidationResponse.java
  modelo.ValidationResponse
-vista/Menu_Bienvenida.java
- vista.Menu_Bienvenida
- vista.Menu_Bienvenida$1
- vista.Menu_Bienvenida$2
+vista/Mensajes.java
+ vista.Mensajes
+ vista.Mensajes$1
+ vista.Mensajes$2
+ vista.Mensajes$2$1
 modelo/Post.java
  modelo.Post
 modelo/Usuario.java
  modelo.Usuario
-modelo/SocialNetwork.java
- modelo.SocialNetwork
-modelo/Validator.java
- modelo.Validator
 vista/Main.java
  vista.Main
  vista.Main$1
-vista/VisualizeSN.java
- vista.VisualizeSN
- vista.VisualizeSN$1
 vista/PanelPost.java
  vista.PanelPost
  vista.PanelPost$1
@@ -25,30 +19,38 @@ vista/PanelPost.java
  vista.PanelPost$3
  vista.PanelPost$4
  vista.PanelPost$5
-vista/Mensajes.java
- vista.Mensajes
- vista.Mensajes$1
- vista.Mensajes$2
- vista.Mensajes$2$1
-vista/PanelDeInicio.java
- vista.PanelDeInicio
- vista.PanelDeInicio$1
- vista.PanelDeInicio$2
-vista/PanelSeguir.java
- vista.PanelSeguir
- vista.PanelSeguir$1
- vista.PanelSeguir$2
- vista.PanelSeguir$3
 vista/PanelDeRegistro.java
  vista.PanelDeRegistro
  vista.PanelDeRegistro$1
  vista.PanelDeRegistro$2
  vista.PanelDeRegistro$3
+modelo/SocialNetwork.java
+ modelo.SocialNetwork
+vista/PanelSeguir.java
+ vista.PanelSeguir
+ vista.PanelSeguir$1
+ vista.PanelSeguir$2
+ vista.PanelSeguir$3
 vista/PanelDeSesionIniciada.java
  vista.PanelDeSesionIniciada
  vista.PanelDeSesionIniciada$1
  vista.PanelDeSesionIniciada$2
  vista.PanelDeSesionIniciada$3
+vista/Menu_Bienvenida.java
+ vista.Menu_Bienvenida
+ vista.Menu_Bienvenida$1
+ vista.Menu_Bienvenida$2
+ vista.Menu_Bienvenida$3
+vista/PanelDeInicio.java
+ vista.PanelDeInicio
+ vista.PanelDeInicio$1
+ vista.PanelDeInicio$2
+ vista.PanelDeInicio$3
+modelo/Validator.java
+ modelo.Validator
+vista/VisualizeSN.java
+ vista.VisualizeSN
+ vista.VisualizeSN$1
 vista/PanelShare.java
  vista.PanelShare
  vista.PanelShare$1

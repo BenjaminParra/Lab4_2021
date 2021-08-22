@@ -25,14 +25,13 @@ public class Main {
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String fechaFormateada = sdf.format(date);
         //String[] fechaClase = fechaFormateada.split("/");
-        System.out.println(fechaFormateada);
         Usuario benja = new  Usuario("benjaParra", "benja123", fechaFormateada);
         Usuario chilo = new Usuario("chiloParra","chilo123",fechaFormateada);
         
         SocialNetwork sn = new SocialNetwork("Facebook",fechaFormateada);
         sn.getUsuarios().add(benja);
         sn.getUsuarios().add(chilo);
-        benja.post("Hola a todos.text", sn);
+        //benja.post("Hola a todos.text", sn);
         
         benja.follow(chilo.getNombreUsuario(), sn);
         //sn.registerUser(benja, sn.getFecha());

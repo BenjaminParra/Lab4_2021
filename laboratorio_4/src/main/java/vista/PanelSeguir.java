@@ -22,6 +22,8 @@ public class PanelSeguir extends javax.swing.JFrame {
     SocialNetwork snSeguir;
     private ImageIcon imagen;
     private Icon icono;
+    ValidationResponse validationResponse = new ValidationResponse();
+    Validator validator = new Validator();
     /**
      * Creates new form PanelSeguir
      */
@@ -62,6 +64,7 @@ public class PanelSeguir extends javax.swing.JFrame {
         btnAyuda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel1.setText("Seguir Usuario");
@@ -151,8 +154,7 @@ public class PanelSeguir extends javax.swing.JFrame {
 
     private void btnSeguirActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnSeguirActionPerformed
         // TODO add your handling code here:
-        ValidationResponse validationResponse = new ValidationResponse();
-        Validator validator = new Validator();
+        
         validationResponse = validator.validadorSeguir(textUsuarioSeguir.getText(), snSeguir);
         
         if (validationResponse.isEsValido()) {
@@ -166,6 +168,7 @@ public class PanelSeguir extends javax.swing.JFrame {
             Mensajes nm = new Mensajes(validationResponse.getMensaje(),this,true,snSeguir);
             nm.setLocationRelativeTo(null);
             nm.setVisible(true);
+            textUsuarioSeguir.setText("");
             
         }
         

@@ -24,6 +24,11 @@ public class PanelPost extends javax.swing.JFrame {
     SocialNetwork snPost;
     private ImageIcon imagen;
     private Icon icono;
+    ArrayList<String> amigosSeleccionados = new ArrayList();
+    String amigosComo = "";
+    Validator validator = new Validator();
+    ValidationResponse validationResponse = new ValidationResponse();
+    
 
     /**
      * Creates new form PanelPost
@@ -54,6 +59,7 @@ public class PanelPost extends javax.swing.JFrame {
      */
     public void mostrar(){
         DefaultTableModel modelo = (DefaultTableModel)tableAmigos.getModel();
+        
         for (int i = 0; i < snPost.getUserOnline().getAmigos().size(); i++) {
             modelo.addRow(new Object[]{snPost.getUserOnline().getAmigos().get(i).getNombreUsuario(),false});
         }
@@ -126,11 +132,19 @@ public class PanelPost extends javax.swing.JFrame {
             Class[] types = new Class [] {
                 java.lang.Object.class, java.lang.Boolean.class
             };
+            boolean[] canEdit = new boolean [] {
+                false, true
+            };
 
             public Class getColumnClass(int columnIndex) {
                 return types [columnIndex];
             }
+
+            public boolean isCellEditable(int rowIndex, int columnIndex) {
+                return canEdit [columnIndex];
+            }
         });
+        tableAmigos.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tableAmigos);
         if (tableAmigos.getColumnModel().getColumnCount() > 0) {
             tableAmigos.getColumnModel().getColumn(1).setMinWidth(10);
@@ -286,12 +300,7 @@ public class PanelPost extends javax.swing.JFrame {
     }//GEN-LAST:event_btnBackActionPerformed
 
     private void btnPostActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPostActionPerformed
-        ArrayList<String> amigosSeleccionados = new ArrayList();
         DefaultTableModel modelo = (DefaultTableModel)tableAmigos.getModel();
-        String amigosComo = "";
-        Validator validator = new Validator();
-        ValidationResponse validationResponse = new ValidationResponse();
-        
         //verifica que las opciones del tipo del texto
         if (!btnAudio.isSelected()&& !btnPhoto.isSelected()&&!btnUrl.isSelected()&&
                 !btnVideo.isSelected()&&!btnText.isSelected()) {

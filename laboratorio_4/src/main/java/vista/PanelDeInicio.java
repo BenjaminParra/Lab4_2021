@@ -21,6 +21,8 @@ public class PanelDeInicio extends javax.swing.JFrame {
     SocialNetwork snInicio;
     private ImageIcon imagen;
     private Icon icono;
+    ValidationResponse validationResponse = new ValidationResponse();
+    Validator validator = new Validator();
     /**
      * Creates new form PanelDeInicio
      * @param sn
@@ -63,8 +65,10 @@ public class PanelDeInicio extends javax.swing.JFrame {
         btnOk = new javax.swing.JButton();
         btnBackMain = new javax.swing.JButton();
         lblLogoLogin = new javax.swing.JLabel();
+        btnAyuda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
         jLabel1.setText("Inicio de sesión");
@@ -86,6 +90,15 @@ public class PanelDeInicio extends javax.swing.JFrame {
         btnBackMain.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnBackMainActionPerformed(evt);
+            }
+        });
+
+        btnAyuda.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
+        btnAyuda.setText("Ayuda");
+        btnAyuda.setBorder(javax.swing.BorderFactory.createTitledBorder(""));
+        btnAyuda.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAyudaActionPerformed(evt);
             }
         });
 
@@ -118,6 +131,10 @@ public class PanelDeInicio extends javax.swing.JFrame {
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                         .addComponent(btnBackMain)))))))
                 .addContainerGap(7, Short.MAX_VALUE))
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(btnAyuda)
+                .addGap(108, 108, 108))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -143,28 +160,19 @@ public class PanelDeInicio extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnOk)
                     .addComponent(btnBackMain))
-                .addGap(48, 48, 48))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAyuda)
+                .addGap(24, 24, 24))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
     private void btnOkActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOkActionPerformed
-        // TODO add your handling code here:
-        
-        Validator validator = new Validator();
         String nombreUsuario = textNombreUsuario.getText();
         String password = textPass.getText();
         String[] datosUsuario = {nombreUsuario,password};
-        ValidationResponse validationResponse = new ValidationResponse();
         validationResponse = validator.validadorLogin(datosUsuario, snInicio);
-        
-        /*
-        PanelDeSesionIniciada pSI = new PanelDeSesionIniciada(snInicio);
-        this.dispose();
-        pSI.setLocationRelativeTo(null);
-        pSI.setVisible(true);*/
-        
         if (validationResponse.isEsValido()) {
             //this.dispose();
             snInicio.login(nombreUsuario);
@@ -177,7 +185,6 @@ public class PanelDeInicio extends javax.swing.JFrame {
             pSI.setVisible(true);
             textNombreUsuario.setText("");
             textPass.setText("");
-            
         }else if (!validationResponse.isEsValido()) {
             //this.dispose();
             Mensajes nm = new Mensajes(validationResponse.getMensaje(),this,true,snInicio);
@@ -185,7 +192,6 @@ public class PanelDeInicio extends javax.swing.JFrame {
             nm.setVisible(true);
             textNombreUsuario.setText("");
             textPass.setText("");
-            
         }
         
         
@@ -196,28 +202,22 @@ public class PanelDeInicio extends javax.swing.JFrame {
  * @param evt 
  */
     private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
-        // TODO add your handling code here:
         Menu_Bienvenida mb = new Menu_Bienvenida(snInicio);
         mb.setLocationRelativeTo(this);
         this.dispose();
-        
         mb.setVisible(true);
     }//GEN-LAST:event_btnBackMainActionPerformed
 
-    /**
-     * @param args the command line arguments
-     */
-    /*
-    public static void main(String args[]) {
-        
-        java.awt.EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                new PanelDeInicio().setVisible(true);
-            }
-        });
-    }*/
+    private void btnAyudaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAyudaActionPerformed
+        // TODO add your handling code here:
+        Mensajes nm = new Mensajes("Procure ingresar el nombre y contraseña respetando minúsculas, mayúsculas y no agregue espacios en blanco",this,true,snInicio);
+        nm.setLocationRelativeTo(null);
+        nm.setVisible(true);
+    }//GEN-LAST:event_btnAyudaActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnAyuda;
     private javax.swing.JButton btnBackMain;
     private javax.swing.JButton btnOk;
     private javax.swing.JLabel jLabel1;

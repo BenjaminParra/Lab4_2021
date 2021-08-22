@@ -76,6 +76,8 @@ public class VisualizeSN extends javax.swing.JFrame {
         ));
         
        // tablaPosts.getColumnModel().getColumn(0).setPreferredWidth(20);
+        tablePosts.setEnabled(false);
+        tableUsuarios.setEnabled(false);
         tablePosts.getColumnModel().getColumn(0).setResizable(false);
         tablePosts.getColumnModel().getColumn(1).setResizable(false);
         tablePosts.getColumnModel().getColumn(2).setResizable(false);
@@ -133,6 +135,7 @@ public class VisualizeSN extends javax.swing.JFrame {
         lblImagen = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         lblNombreSN.setFont(new java.awt.Font("Impact", 0, 48)); // NOI18N
         lblNombreSN.setText("j");
@@ -146,6 +149,7 @@ public class VisualizeSN extends javax.swing.JFrame {
                 "ID", "Usuario remitente", "Contenido", "Usuario receptor", "Fecha de creación"
             }
         ));
+        tablePosts.getTableHeader().setReorderingAllowed(false);
         jScrollPane1.setViewportView(tablePosts);
 
         jLabel1.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
@@ -164,6 +168,7 @@ public class VisualizeSN extends javax.swing.JFrame {
                 "Nombre Usuario", "Amigos", "Seguidores"
             }
         ));
+        tableUsuarios.getTableHeader().setReorderingAllowed(false);
         jScrollPane2.setViewportView(tableUsuarios);
 
         btnBack.setText("Volver atrás");
@@ -228,10 +233,18 @@ public class VisualizeSN extends javax.swing.JFrame {
 
     private void btnBackActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackActionPerformed
         // TODO add your handling code here:
-        PanelDeSesionIniciada psi = new PanelDeSesionIniciada(snVisualize);
-        psi.setLocationRelativeTo(this);
-        this.dispose();
-        psi.setVisible(true);
+        if (snVisualize.existeUserOnline()) {
+            PanelDeSesionIniciada psi = new PanelDeSesionIniciada(snVisualize);
+            psi.setLocationRelativeTo(this);
+            this.dispose();
+            psi.setVisible(true);
+        }else{
+            Menu_Bienvenida mb = new Menu_Bienvenida(snVisualize);
+            mb.setLocationRelativeTo(this);
+            this.dispose();
+            mb.setVisible(true);
+        }
+        
     }//GEN-LAST:event_btnBackActionPerformed
 
     

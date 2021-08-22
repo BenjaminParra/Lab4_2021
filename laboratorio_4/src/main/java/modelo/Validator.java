@@ -344,20 +344,29 @@ public class Validator {
         ValidationResponse validationResponse = new ValidationResponse();
         String mensajeValidacion = "";
         boolean esValido = true;
-        if (esNumero(usuario)||usuario.isEmpty()) {
+        if (esNumero(usuario)) {
             esValido = false;
             mensajeValidacion = mensajeValidacion + "\nERROR: Asegurese de ingresar el nombre de un usuario";
-        }else{
-            if (usuario.length()<6) {
-                esValido = false;
-                mensajeValidacion = mensajeValidacion + "\nERROR: Recuerde que todo usuario debe contener al menos 6 caracteres";
-            }
-            if (!socialNetwork.estaRegistrado(usuario)) {
-                esValido = false;
-                mensajeValidacion = mensajeValidacion + "\nERROR: El usuario no se encuentra registrado";
-            }
-            if (socialNetwork.estaRegistrado(usuario)) {
-                if (socialNetwork.getUserOnline().getAmigos().contains(socialNetwork.getUsuarioConNombre(usuario))) {
+        }
+        if (usuario.isEmpty()) {
+            esValido = false;
+            mensajeValidacion = mensajeValidacion + "\nERROR: Asegurese de ingresar el nombre de un usuario";
+        }
+        if (usuario.length()<6) {
+            esValido = false;
+            mensajeValidacion = mensajeValidacion + "\nERROR: Recuerde que todo usuario debe contener al menos 6 caracteres";
+        }
+        if (soloEspacios(usuario)) {
+            esValido = false;
+            mensajeValidacion = mensajeValidacion + "\nERROR: Asegurese de no ingresar solo espacios vacíos";
+            
+        }
+        if (!socialNetwork.estaRegistrado(usuario)&& !soloEspacios(usuario)) {
+            esValido = false;
+            mensajeValidacion = mensajeValidacion + "\nERROR: El usuario no se encuentra registrado";
+        }
+        if (socialNetwork.estaRegistrado(usuario)) {
+            if (socialNetwork.getUserOnline().getAmigos().contains(socialNetwork.getUsuarioConNombre(usuario))) {
                     esValido = false;
                     mensajeValidacion = mensajeValidacion + "\nERROR: El usuario:"+usuario+" ya se encuentra en la lista de amigos de "+socialNetwork.getUserOnline().getNombreUsuario();
                 }
@@ -367,7 +376,7 @@ public class Validator {
                 }
                 
             }
-        }
+        
         validationResponse.setEsValido(esValido);
         validationResponse.setMensaje(mensajeValidacion);
         return validationResponse;

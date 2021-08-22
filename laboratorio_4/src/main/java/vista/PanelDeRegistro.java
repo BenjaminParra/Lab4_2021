@@ -44,6 +44,7 @@ public class PanelDeRegistro extends javax.swing.JFrame {
         btnAyuda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setResizable(false);
 
         jLabel1.setText("Nombre de usuario");
 
@@ -128,9 +129,9 @@ public class PanelDeRegistro extends javax.swing.JFrame {
                     .addComponent(jLabel2)
                     .addComponent(textPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(btnBackMain))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(btnBackMain)
+                    .addComponent(jButton1))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAyuda)
                 .addContainerGap(9, Short.MAX_VALUE))
@@ -151,7 +152,6 @@ public class PanelDeRegistro extends javax.swing.JFrame {
         String[] usuarioString = {nombreUsuario,password};
         validationResponse = validator.validadorUsuario(usuarioString , snRegistro);
         if (validationResponse.isEsValido()) {
-            
             snRegistro.registerUser(usuarioString, snRegistro.getFecha());
             Mensajes nm = new Mensajes("El usuario se ha registrado exitosamente",this,true,snRegistro);
             nm.setLocationRelativeTo(null);
