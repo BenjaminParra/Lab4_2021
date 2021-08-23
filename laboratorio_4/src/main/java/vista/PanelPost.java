@@ -40,7 +40,11 @@ public class PanelPost extends javax.swing.JFrame {
         mostrar();
         pintarImagen(lblSeguirLogo, "src/main/java/vista/logoPost.png");
     }
-    
+    /**
+     * Metodo obtenido de tutorial de youtube para montar imagenes en un label
+     * @param lbl
+     * @param ruta 
+     */
     private void pintarImagen(JLabel lbl, String ruta){
         this.imagen = new ImageIcon(ruta);
         this.icono = new ImageIcon(
@@ -97,10 +101,10 @@ public class PanelPost extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
+        lblCrearPost = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tableAmigos = new javax.swing.JTable();
-        jLabel2 = new javax.swing.JLabel();
+        lblIndicacion = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         textContenido = new javax.swing.JTextPane();
         btnText = new javax.swing.JRadioButton();
@@ -110,16 +114,16 @@ public class PanelPost extends javax.swing.JFrame {
         btnAudio = new javax.swing.JRadioButton();
         btnPost = new javax.swing.JButton();
         btnBack = new javax.swing.JButton();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblTipo = new javax.swing.JLabel();
+        lblAmigos = new javax.swing.JLabel();
         lblSeguirLogo = new javax.swing.JLabel();
         btnAyuda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
-        jLabel1.setText("Crear publicación");
+        lblCrearPost.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
+        lblCrearPost.setText("Crear publicación");
 
         tableAmigos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -151,7 +155,7 @@ public class PanelPost extends javax.swing.JFrame {
             tableAmigos.getColumnModel().getColumn(1).setMaxWidth(100);
         }
 
-        jLabel2.setText("Ingrese el contenido de la publicación");
+        lblIndicacion.setText("Ingrese el contenido de la publicación");
 
         jScrollPane2.setViewportView(textContenido);
 
@@ -189,9 +193,9 @@ public class PanelPost extends javax.swing.JFrame {
             }
         });
 
-        jLabel3.setText("Tipo");
+        lblTipo.setText("Tipo");
 
-        jLabel4.setText("Amigos");
+        lblAmigos.setText("Amigos");
 
         lblSeguirLogo.setText("jLabel5");
         lblSeguirLogo.setMaximumSize(new java.awt.Dimension(81, 81));
@@ -215,12 +219,12 @@ public class PanelPost extends javax.swing.JFrame {
                         .addContainerGap()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                .addComponent(jLabel4)
+                                .addComponent(lblAmigos)
                                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 452, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 349, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addComponent(lblIndicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 210, javax.swing.GroupLayout.PREFERRED_SIZE))
                                 .addGap(18, 18, 18)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                     .addComponent(btnBack, javax.swing.GroupLayout.DEFAULT_SIZE, 110, Short.MAX_VALUE)
@@ -230,7 +234,7 @@ public class PanelPost extends javax.swing.JFrame {
                                     .addComponent(btnAudio, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnText, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                                     .addComponent(btnPost, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                    .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 69, javax.swing.GroupLayout.PREFERRED_SIZE)
                                     .addGroup(layout.createSequentialGroup()
                                         .addGap(36, 36, 36)
                                         .addComponent(btnAyuda))))))
@@ -238,7 +242,7 @@ public class PanelPost extends javax.swing.JFrame {
                         .addGap(59, 59, 59)
                         .addComponent(lblSeguirLogo, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblCrearPost, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(30, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -250,16 +254,16 @@ public class PanelPost extends javax.swing.JFrame {
                         .addComponent(lblSeguirLogo, javax.swing.GroupLayout.DEFAULT_SIZE, 81, Short.MAX_VALUE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(54, 54, 54)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblCrearPost, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(0, 20, Short.MAX_VALUE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 32, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(lblAmigos)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 109, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblIndicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 24, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 149, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -279,7 +283,7 @@ public class PanelPost extends javax.swing.JFrame {
                         .addComponent(btnBack))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(5, 5, 5)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblTipo, javax.swing.GroupLayout.PREFERRED_SIZE, 19, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAyuda)
                 .addGap(7, 7, 7))
@@ -378,13 +382,13 @@ public class PanelPost extends javax.swing.JFrame {
     private javax.swing.JRadioButton btnUrl;
     private javax.swing.JRadioButton btnVideo;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblAmigos;
+    private javax.swing.JLabel lblCrearPost;
+    private javax.swing.JLabel lblIndicacion;
     private javax.swing.JLabel lblSeguirLogo;
+    private javax.swing.JLabel lblTipo;
     private javax.swing.JTable tableAmigos;
     private javax.swing.JTextPane textContenido;
     // End of variables declaration//GEN-END:variables

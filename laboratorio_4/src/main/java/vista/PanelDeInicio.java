@@ -32,7 +32,12 @@ public class PanelDeInicio extends javax.swing.JFrame {
         this.snInicio = sn;
         pintarImagen(lblLogoLogin, "src/main/java/vista/logoLogin.png");
     }
-    
+    /**
+     * Metodo obtenido de videoTutoriales que para montar imagenes
+     * en Jlabel
+     * @param lbl
+     * @param ruta 
+     */
     private void pintarImagen(JLabel lbl, String ruta){
         this.imagen = new ImageIcon(ruta);
         this.icono = new ImageIcon(
@@ -56,10 +61,10 @@ public class PanelDeInicio extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblInicio = new javax.swing.JLabel();
+        lblNombreUser = new javax.swing.JLabel();
+        lblPass = new javax.swing.JLabel();
+        lblIndicacion = new javax.swing.JLabel();
         textNombreUsuario = new javax.swing.JTextField();
         textPass = new javax.swing.JPasswordField();
         btnOk = new javax.swing.JButton();
@@ -70,14 +75,14 @@ public class PanelDeInicio extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
-        jLabel1.setText("Inicio de sesión");
+        lblInicio.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
+        lblInicio.setText("Inicio de sesión");
 
-        jLabel2.setText("Nombre de Usuario");
+        lblNombreUser.setText("Nombre de Usuario");
 
-        jLabel3.setText("Contraseña");
+        lblPass.setText("Contraseña");
 
-        jLabel4.setText("Por favor ingrese nombre y contraseña");
+        lblIndicacion.setText("Por favor ingrese nombre y contraseña");
 
         btnOk.setText("OK");
         btnOk.addActionListener(new java.awt.event.ActionListener() {
@@ -112,15 +117,15 @@ public class PanelDeInicio extends javax.swing.JFrame {
                         .addGap(26, 26, 26)
                         .addComponent(lblLogoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                        .addComponent(jLabel1))
+                        .addComponent(lblInicio))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(28, 28, 28)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(lblIndicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 304, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                    .addComponent(jLabel3)
-                                    .addComponent(jLabel2))
+                                    .addComponent(lblPass)
+                                    .addComponent(lblNombreUser))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -145,16 +150,16 @@ public class PanelDeInicio extends javax.swing.JFrame {
                         .addComponent(lblLogoLogin, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(36, 36, 36)
-                        .addComponent(jLabel1)))
+                        .addComponent(lblInicio)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 31, Short.MAX_VALUE)
-                .addComponent(jLabel4)
+                .addComponent(lblIndicacion)
                 .addGap(23, 23, 23)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(lblNombreUser)
                     .addComponent(textNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel3)
+                    .addComponent(lblPass)
                     .addComponent(textPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(39, 39, 39)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
@@ -220,11 +225,11 @@ public class PanelDeInicio extends javax.swing.JFrame {
     private javax.swing.JButton btnAyuda;
     private javax.swing.JButton btnBackMain;
     private javax.swing.JButton btnOk;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel lblIndicacion;
+    private javax.swing.JLabel lblInicio;
     private javax.swing.JLabel lblLogoLogin;
+    private javax.swing.JLabel lblNombreUser;
+    private javax.swing.JLabel lblPass;
     private javax.swing.JTextField textNombreUsuario;
     private javax.swing.JPasswordField textPass;
     // End of variables declaration//GEN-END:variables

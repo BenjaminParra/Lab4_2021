@@ -15,6 +15,8 @@ import modelo.Validator;
  */
 public class PanelDeRegistro extends javax.swing.JFrame {
     SocialNetwork snRegistro;
+    Validator validator = new Validator();
+    ValidationResponse validationResponse = new ValidationResponse();
     /**
      * Creates new form PanelDeRegistro
      * @param sn
@@ -33,32 +35,32 @@ public class PanelDeRegistro extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
-        jLabel3 = new javax.swing.JLabel();
-        jLabel4 = new javax.swing.JLabel();
+        lblNombreUser = new javax.swing.JLabel();
+        lblPass = new javax.swing.JLabel();
+        lblRegistro = new javax.swing.JLabel();
+        lblIndicacion = new javax.swing.JLabel();
         textNombreUsuario = new javax.swing.JTextField();
         textPass = new javax.swing.JPasswordField();
-        jButton1 = new javax.swing.JButton();
+        btnOk = new javax.swing.JButton();
         btnBackMain = new javax.swing.JButton();
         btnAyuda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setText("Nombre de usuario");
+        lblNombreUser.setText("Nombre de usuario");
 
-        jLabel2.setText("Contraseña");
+        lblPass.setText("Contraseña");
 
-        jLabel3.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
-        jLabel3.setText("Registro de Usuario");
+        lblRegistro.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
+        lblRegistro.setText("Registro de Usuario");
 
-        jLabel4.setText("Por favor ingrese el nombre y contraseña del usuario a registrar");
+        lblIndicacion.setText("Por favor ingrese el nombre y contraseña del usuario a registrar");
 
-        jButton1.setText("OK");
-        jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
+        btnOk.setText("OK");
+        btnOk.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
-                jButton1MouseClicked(evt);
+                btnOkMouseClicked(evt);
             }
         });
 
@@ -86,24 +88,24 @@ public class PanelDeRegistro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(40, 40, 40)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
-                                    .addComponent(jLabel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                    .addComponent(jLabel2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addComponent(lblNombreUser, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(lblPass, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addGroup(layout.createSequentialGroup()
-                                        .addComponent(jButton1)
+                                        .addComponent(btnOk)
                                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                                         .addComponent(btnBackMain))
                                     .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                                         .addComponent(textNombreUsuario)
                                         .addComponent(textPass, javax.swing.GroupLayout.DEFAULT_SIZE, 147, Short.MAX_VALUE))))
-                            .addComponent(jLabel4))))
+                            .addComponent(lblIndicacion))))
                 .addContainerGap(51, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -116,22 +118,22 @@ public class PanelDeRegistro extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(55, 55, 55)
-                        .addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblIndicacion, javax.swing.GroupLayout.PREFERRED_SIZE, 65, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(25, 25, 25)
-                        .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblRegistro, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1)
+                    .addComponent(lblNombreUser)
                     .addComponent(textNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel2)
+                    .addComponent(lblPass)
                     .addComponent(textPass, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnBackMain)
-                    .addComponent(jButton1))
+                    .addComponent(btnOk))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(btnAyuda)
                 .addContainerGap(9, Short.MAX_VALUE))
@@ -140,14 +142,8 @@ public class PanelDeRegistro extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        
-        Validator validator = new Validator();
-        ValidationResponse validationResponse = new ValidationResponse();
-        
-        
+    private void btnOkMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnOkMouseClicked
         String nombreUsuario= textNombreUsuario.getText();
-        
         String password = textPass.getText();
         String[] usuarioString = {nombreUsuario,password};
         validationResponse = validator.validadorUsuario(usuarioString , snRegistro);
@@ -163,18 +159,19 @@ public class PanelDeRegistro extends javax.swing.JFrame {
             Mensajes nm = new Mensajes(validationResponse.getMensaje(),this,true,snRegistro);
             nm.setLocationRelativeTo(null);
             nm.setVisible(true);
+            textNombreUsuario.setText("");
+            textPass.setText("");
             
         }
         
         
-    }//GEN-LAST:event_jButton1MouseClicked
+    }//GEN-LAST:event_btnOkMouseClicked
 
     private void btnBackMainActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnBackMainActionPerformed
         // TODO add your handling code here:
         Menu_Bienvenida mb = new Menu_Bienvenida(snRegistro);
         mb.setLocationRelativeTo(this);
         this.dispose();
-        
         mb.setVisible(true);
     }//GEN-LAST:event_btnBackMainActionPerformed
 
@@ -201,11 +198,11 @@ public class PanelDeRegistro extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAyuda;
     private javax.swing.JButton btnBackMain;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
-    private javax.swing.JLabel jLabel4;
+    private javax.swing.JButton btnOk;
+    private javax.swing.JLabel lblIndicacion;
+    private javax.swing.JLabel lblNombreUser;
+    private javax.swing.JLabel lblPass;
+    private javax.swing.JLabel lblRegistro;
     private javax.swing.JTextField textNombreUsuario;
     private javax.swing.JPasswordField textPass;
     // End of variables declaration//GEN-END:variables

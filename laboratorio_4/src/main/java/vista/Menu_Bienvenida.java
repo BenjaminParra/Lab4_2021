@@ -38,9 +38,9 @@ public class Menu_Bienvenida extends javax.swing.JFrame {
 
         btnIniciarSesion = new javax.swing.JButton();
         btnRegistrarse = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        lblMensajeBienvenida = new javax.swing.JLabel();
         lblnombreRedSocial = new javax.swing.JLabel();
-        jButton1 = new javax.swing.JButton();
+        btnVerSN = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setBackground(new java.awt.Color(255, 255, 255));
@@ -64,17 +64,17 @@ public class Menu_Bienvenida extends javax.swing.JFrame {
             }
         });
 
-        jLabel1.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
-        jLabel1.setText("Bienvenid@  a ");
+        lblMensajeBienvenida.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
+        lblMensajeBienvenida.setText("Bienvenid@  a ");
 
         lblnombreRedSocial.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
         lblnombreRedSocial.setText("jLabel2");
 
-        jButton1.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
-        jButton1.setText("Visualizar Red Social");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnVerSN.setFont(new java.awt.Font("SansSerif", 0, 18)); // NOI18N
+        btnVerSN.setText("Visualizar Red Social");
+        btnVerSN.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnVerSNActionPerformed(evt);
             }
         });
 
@@ -86,14 +86,14 @@ public class Menu_Bienvenida extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(107, 107, 107)
-                        .addComponent(jLabel1)
+                        .addComponent(lblMensajeBienvenida)
                         .addGap(18, 18, 18)
                         .addComponent(lblnombreRedSocial, javax.swing.GroupLayout.PREFERRED_SIZE, 200, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(220, 220, 220)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                             .addComponent(btnIniciarSesion, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(btnVerSN, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addComponent(btnRegistrarse, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))))
                 .addContainerGap(142, Short.MAX_VALUE))
         );
@@ -102,14 +102,14 @@ public class Menu_Bienvenida extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(34, 34, 34)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblMensajeBienvenida, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(lblnombreRedSocial))
                 .addGap(49, 49, 49)
                 .addComponent(btnIniciarSesion, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(btnRegistrarse, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnVerSN, javax.swing.GroupLayout.PREFERRED_SIZE, 51, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(127, Short.MAX_VALUE))
         );
 
@@ -133,13 +133,13 @@ public class Menu_Bienvenida extends javax.swing.JFrame {
         this.dispose();
     }//GEN-LAST:event_btnIniciarSesionActionPerformed
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnVerSNActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnVerSNActionPerformed
         // TODO add your handling code here:
         VisualizeSN vSN = new VisualizeSN(snMenu);
         vSN.setLocationRelativeTo(null);
         vSN.setVisible(true);
         this.dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnVerSNActionPerformed
 
     /**
      * @param args the command line arguments
@@ -149,8 +149,8 @@ public class Menu_Bienvenida extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnIniciarSesion;
     private javax.swing.JButton btnRegistrarse;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton btnVerSN;
+    private javax.swing.JLabel lblMensajeBienvenida;
     private javax.swing.JLabel lblnombreRedSocial;
     // End of variables declaration//GEN-END:variables
 }

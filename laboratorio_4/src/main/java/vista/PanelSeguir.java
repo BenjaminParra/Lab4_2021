@@ -30,8 +30,14 @@ public class PanelSeguir extends javax.swing.JFrame {
     public PanelSeguir(SocialNetwork sn) {
         initComponents();
         this.snSeguir = sn;
-        pintarImagen(lblSeguir, "src/main/java/vista/prueba.png");
+        pintarImagen(lblLogoSeguir, "src/main/java/vista/prueba.png");
     }
+    /**
+     * Metodo obtenido de un video tutorial para montar imagen en un jLabel
+     *
+     * @param lbl
+     * @param ruta 
+     */
     private void pintarImagen(JLabel lbl, String ruta){
         this.imagen = new ImageIcon(ruta);
         this.icono = new ImageIcon(
@@ -55,21 +61,21 @@ public class PanelSeguir extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jLabel1 = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblSeguir = new javax.swing.JLabel();
+        lblIndicaciones = new javax.swing.JLabel();
         btnSeguir = new javax.swing.JButton();
         textUsuarioSeguir = new javax.swing.JTextField();
         btnVolverAtras = new javax.swing.JButton();
-        lblSeguir = new javax.swing.JLabel();
+        lblLogoSeguir = new javax.swing.JLabel();
         btnAyuda = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
-        jLabel1.setText("Seguir Usuario");
+        lblSeguir.setFont(new java.awt.Font("Impact", 0, 24)); // NOI18N
+        lblSeguir.setText("Seguir Usuario");
 
-        jLabel2.setText("Ingrese el nombre del usuario a seguir:");
+        lblIndicaciones.setText("Ingrese el nombre del usuario a seguir:");
 
         btnSeguir.setText("Seguir");
         btnSeguir.addActionListener(new java.awt.event.ActionListener() {
@@ -85,7 +91,7 @@ public class PanelSeguir extends javax.swing.JFrame {
             }
         });
 
-        lblSeguir.setToolTipText("");
+        lblLogoSeguir.setToolTipText("");
 
         btnAyuda.setFont(new java.awt.Font("Segoe UI", 3, 12)); // NOI18N
         btnAyuda.setText("Ayuda");
@@ -102,15 +108,15 @@ public class PanelSeguir extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(19, 19, 19)
-                .addComponent(lblSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblLogoSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addContainerGap(30, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblIndicaciones, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addGroup(layout.createSequentialGroup()
@@ -129,16 +135,16 @@ public class PanelSeguir extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(27, 27, 27)
-                        .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(lblSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(lblSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(lblLogoSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, 81, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(29, 29, 29)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addGroup(layout.createSequentialGroup()
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(textUsuarioSeguir, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel2))
+                            .addComponent(lblIndicaciones))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(btnSeguir))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
@@ -197,8 +203,8 @@ public class PanelSeguir extends javax.swing.JFrame {
     private javax.swing.JButton btnAyuda;
     private javax.swing.JButton btnSeguir;
     private javax.swing.JButton btnVolverAtras;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel lblIndicaciones;
+    private javax.swing.JLabel lblLogoSeguir;
     private javax.swing.JLabel lblSeguir;
     private javax.swing.JTextField textUsuarioSeguir;
     // End of variables declaration//GEN-END:variables

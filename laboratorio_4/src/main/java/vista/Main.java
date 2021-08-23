@@ -21,7 +21,7 @@ public class Main {
      */
     public static void main(String[] args) {
         // TODO code application logic here
-         Date date = new Date();
+        Date date = new Date();
         SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
         String fechaFormateada = sdf.format(date);
         //String[] fechaClase = fechaFormateada.split("/");

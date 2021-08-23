@@ -57,7 +57,11 @@ public class Mensajes extends javax.swing.JDialog {
     private Mensajes(JFrame jFrame, boolean b) {
         throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
     }
-
+/**
+ * metodo obtenido de video tutoriales que sirve para montar imagen en un jLabel
+ * @param lbl
+ * @param ruta 
+ */
     private void pintarImagen(JLabel lbl, String ruta){
         this.imagen = new ImageIcon(ruta);
         this.icono = new ImageIcon(

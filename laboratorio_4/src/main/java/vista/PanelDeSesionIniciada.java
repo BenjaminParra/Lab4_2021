@@ -36,7 +36,9 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
        // pintarImagen(lblNombreUsuario.getIcon(), "src/main/java/vista/addFriend.png");
 
     }
-    
+    /**
+     * Metodo que muestra los usuarios agregados a la lista del usuario onlie
+     */
     public void mostrarAmigos(){
         String matriz[][] = new String[snOn.getUserOnline().getAmigos().size()][1];
         
@@ -55,6 +57,12 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         tableAmigos.getColumnModel().getColumn(0).setResizable(false);
     }
     
+    /**
+     * Metodo obtenido de videoTutoriales que para montar imagenes
+     * en Jlabel
+     * @param lbl
+     * @param ruta 
+     */
      private void pintarImagen(JLabel lbl, String ruta){
         this.imagen = new ImageIcon(ruta);
         this.icono = new ImageIcon(
@@ -69,7 +77,9 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         
     }
      
-     
+     /**
+      * Metodo creado para mostrar una tabla con las publicaciones hechas en el perfil del usuario Online
+      */
     public void mostrar(){
         
         String matriz[][] = new String[snOn.getUserOnline().getPosts().size()][5];
@@ -130,32 +140,32 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
     private void initComponents() {
 
         buttonGroup1 = new javax.swing.ButtonGroup();
-        jLabel1 = new javax.swing.JLabel();
+        lblSesionIniciada = new javax.swing.JLabel();
         textNombreUsuario = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        lblMenuOpciones = new javax.swing.JLabel();
         radioButtonPost = new javax.swing.JRadioButton();
         radioButtonFollow = new javax.swing.JRadioButton();
         radioButtonShare = new javax.swing.JRadioButton();
         radioButtonVisualize = new javax.swing.JRadioButton();
-        jButton1 = new javax.swing.JButton();
+        btnOK = new javax.swing.JButton();
         radioButtonLogout = new javax.swing.JRadioButton();
         lblNombreUsuario = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
         tablaPosts = new javax.swing.JTable();
-        jLabel3 = new javax.swing.JLabel();
+        lblPosts = new javax.swing.JLabel();
         jScrollPane2 = new javax.swing.JScrollPane();
         tableAmigos = new javax.swing.JTable();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setResizable(false);
 
-        jLabel1.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
-        jLabel1.setText("Sesión Iniciada");
+        lblSesionIniciada.setFont(new java.awt.Font("Impact", 0, 36)); // NOI18N
+        lblSesionIniciada.setText("Sesión Iniciada");
 
         textNombreUsuario.setBackground(new java.awt.Color(255, 0, 102));
         textNombreUsuario.setFont(new java.awt.Font("Tahoma", 1, 24)); // NOI18N
 
-        jLabel2.setText("Menú de opciones:");
+        lblMenuOpciones.setText("Menú de opciones:");
 
         buttonGroup1.add(radioButtonPost);
         radioButtonPost.setText("Realizar publicación");
@@ -169,10 +179,10 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         buttonGroup1.add(radioButtonVisualize);
         radioButtonVisualize.setText("Visualizar RedSocial");
 
-        jButton1.setText("OK");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        btnOK.setText("OK");
+        btnOK.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                btnOKActionPerformed(evt);
             }
         });
 
@@ -218,8 +228,8 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
             tablaPosts.getColumnModel().getColumn(4).setResizable(false);
         }
 
-        jLabel3.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
-        jLabel3.setText("Publicaciones en el perfil");
+        lblPosts.setFont(new java.awt.Font("Impact", 0, 18)); // NOI18N
+        lblPosts.setText("Publicaciones en el perfil");
 
         tableAmigos.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -258,20 +268,20 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 1157, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblPosts, javax.swing.GroupLayout.PREFERRED_SIZE, 204, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(19, 19, 19)
-                        .addComponent(jLabel1)
+                        .addComponent(lblSesionIniciada)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(textNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 373, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(lblNombreUsuario, javax.swing.GroupLayout.PREFERRED_SIZE, 222, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(52, 52, 52)
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(lblMenuOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 111, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(btnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addGroup(layout.createSequentialGroup()
                                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                                     .addComponent(radioButtonFollow)
@@ -288,7 +298,7 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblSesionIniciada, javax.swing.GroupLayout.PREFERRED_SIZE, 67, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addGroup(layout.createSequentialGroup()
                         .addGap(17, 17, 17)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
@@ -300,7 +310,7 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
                         .addGap(14, 14, 14)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(radioButtonPost)
-                            .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(lblMenuOpciones, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE))
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(radioButtonFollow)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -311,9 +321,9 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
                         .addComponent(radioButtonLogout))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnOK, javax.swing.GroupLayout.PREFERRED_SIZE, 44, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(73, 73, 73)
-                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(lblPosts, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(19, 19, 19)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 185, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(35, Short.MAX_VALUE))
@@ -322,7 +332,7 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void btnOKActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnOKActionPerformed
         //SocialNetwork sn = new SocialNetwork("Facebook","27/12/2021");
         
         if (radioButtonFollow.isSelected()) {
@@ -380,7 +390,7 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
             }
             
         }
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_btnOKActionPerformed
 
     /**
      * @param args the command line arguments
@@ -396,14 +406,14 @@ public class PanelDeSesionIniciada extends javax.swing.JFrame {
     }*/
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btnOK;
     private javax.swing.ButtonGroup buttonGroup1;
-    private javax.swing.JButton jButton1;
-    private javax.swing.JLabel jLabel1;
-    private javax.swing.JLabel jLabel2;
-    private javax.swing.JLabel jLabel3;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JLabel lblMenuOpciones;
     private javax.swing.JLabel lblNombreUsuario;
+    private javax.swing.JLabel lblPosts;
+    private javax.swing.JLabel lblSesionIniciada;
     private javax.swing.JRadioButton radioButtonFollow;
     private javax.swing.JRadioButton radioButtonLogout;
     private javax.swing.JRadioButton radioButtonPost;
